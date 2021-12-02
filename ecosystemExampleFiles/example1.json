@@ -1,0 +1,29 @@
+{
+	"fieldSize" : [50, 50],
+	"defaultHP" : 20,
+	"defaultFP" : 20,
+	"starveAfter" : 10,
+	"HPFPEquivalence" : 20,
+	"meatCompostAfter" : 10,
+	"visionRadius" : 12,
+	"contactRadius" : 3,
+	"rootRadius" : 10,
+	"seedRadius" : 8,
+	"startRandom" : false,
+	"lifeDefaults" : {
+		"human" : {
+			"lifespan" : 200,
+			"reproduceCooldown" : 2,
+			"gestation" : 8,
+			"hierarchy" : 5
+		}
+	},
+	"rounds" : [
+		[
+		["human", 0, false, 0, 20, 20, 0, 0],
+		["human", 1, false, 0, 20, 20, 10, 7],
+		["human", 1, false, 0, 20, 20, 25, 44],
+		["human", 0, false, 0, 20, 20, 39, 12]
+		]
+	]
+}
