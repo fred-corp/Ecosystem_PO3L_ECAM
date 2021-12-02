@@ -8,9 +8,8 @@ def parse(pathToJson):
             input = json.load(jsonFile)
     except:
         raise Exception("JSONDecodeError : No valid JSON file was provided")
-    
-    return
 
+    return
 
 
 if __name__ == "__main__":
