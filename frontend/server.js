@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 
 let app = express();
 
-var msg = "This website is not constructed yet !\nAutoupdate from GitHub repo seems to work !";
+var msg = "This website is not constructed yet !<br>Autoupdate from GitHub repo seems to work !";
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
