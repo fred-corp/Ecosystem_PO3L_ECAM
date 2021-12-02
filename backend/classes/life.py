@@ -1,4 +1,4 @@
-class Life :
+class Life:
     def __init__(self, life_points, energy_reserve, age, gender):
         self.life_points = life_points
         self.energy_reserve = energy_reserve
