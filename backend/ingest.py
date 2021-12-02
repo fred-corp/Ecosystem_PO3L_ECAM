@@ -1,0 +1,18 @@
+import sys
+import json
+
+def parse(pathToJson):
+	try:
+		with open(pathToJson) as jsonFile :
+			input = json.load(jsonFile)
+	except :
+		raise Exception("JSONDecodeError : No valid JSON file was provided")
+	
+	return 
+
+
+
+if __name__ == "__main__" :
+	path = sys.argv[1]
+	parsedData = parse(path)
+	print(parsedData)
