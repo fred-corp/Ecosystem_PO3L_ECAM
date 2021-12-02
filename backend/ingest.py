@@ -6,7 +6,7 @@ def parse(pathToJson):
     try:
         with open(pathToJson) as jsonFile:
             input = json.load(jsonFile)
-    except json.decoder.JSONDecodeError :
+    except json.decoder.JSONDecodeError:
         raise Exception("JSONDecodeError : No valid JSON file was provided")
 
     return input
