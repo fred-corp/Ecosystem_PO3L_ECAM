@@ -6,4 +6,3 @@ class Life:
 
     def modify_energy(modify_hierarchy):
         pass
-    
