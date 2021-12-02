@@ -13,17 +13,25 @@
 	"lifeDefaults" : {
 		"human" : {
 			"lifespan" : 200,
-			"reproduceCooldown" : 2,
-			"gestation" : 8,
+			"reproduceCooldown" : 8,
+			"gestation" : 10,
 			"hierarchy" : 5
+		},
+		"platypuss" : {
+			"lifespan" : 80,
+			"reproduceCooldown" : 3,
+			"gestation" : 4,
+			"hierarchy" : 2
 		}
 	},
 	"rounds" : [
 		[
-		["human", 0, false, 0, 20, 20, 0, 0],
-		["human", 1, false, 0, 20, 20, 10, 7],
-		["human", 1, false, 0, 20, 20, 25, 44],
-		["human", 0, false, 0, 20, 20, 39, 12]
+		["3f6a59f4-b970-4967-996a-18a2716abf11", "human", 0, false, 0, 0, 20, 20, 0, 0],
+		["244208f5-9a10-403b-bec2-7b73de3c0a68", "human", 1, false, 0, 0, 20, 20, 10, 7],
+		["925852b6-447c-4d62-a9bd-f575d9df279f", "human", 1, false, 0, 0, 20, 20, 25, 44],
+		["1056303f-551e-4e89-b04e-f4cfe61a1144", "human", 0, false, 0, 0, 20, 20, 39, 12],
+		["cfaba5ae-64e0-4bad-93b4-69855c2a4024", "platypuss", 0, false, 0, 0, 20, 20, 48, 29],
+		["43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "platypuss", 1, false, 0, 0, 20, 20, 22, 33]
 		]
 	]
 }

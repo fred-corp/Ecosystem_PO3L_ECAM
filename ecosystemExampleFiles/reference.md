@@ -29,7 +29,8 @@
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating/spreading seeds again
   "gestation" : int x,         # Number of rounds it takes for a newborn to develop/a seed to grow to a plant
   "hierarchy" : int x          # Hierarchy of the lifeform. A higher hierarchy lifeform can eat a lower hierarchy lifeform
- }
+ },
+ ...
 }
 
 ```
@@ -38,7 +39,7 @@
 
 ```python
 [
- [str lifeform, int gender, bool isPregnant, int age, int HP, int FP, int X,  int Y],
+ [str UUID, str lifeform, int gender, bool isPregnant, int cooldown, int age, int HP, int FP, int X,  int Y],
  ...
 ]
 ```
