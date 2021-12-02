@@ -4,5 +4,5 @@ class Life:
         self.contact_zone = contact_zone
         self.hierarchy = hierarchy
 
-    def modify_energy(modify_hierarchy):
+    def modify_energy(self):
         pass

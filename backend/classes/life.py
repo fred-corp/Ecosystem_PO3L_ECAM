@@ -5,8 +5,8 @@ class Life:
         self.age = age
         self.gender = gender
 
-    def modify_energy(energy_reserve):
+    def modify_energy(self):
         pass
 
-    def modify_life_points(life_points):
+    def modify_life_points(self):
         pass
