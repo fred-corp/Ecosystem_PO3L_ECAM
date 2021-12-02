@@ -4,6 +4,7 @@
 
 ```python
 {
+ "seed" : int s,               # Random seed for the exosystem
  "fieldSize" : [int X, int Y], # Size of the ecosystem
  "defaultHP" : int HP,         # Default healthpoints for (new) lifes
  "defaultFP" : int FP,         # Default foodpoints for (new) lifes

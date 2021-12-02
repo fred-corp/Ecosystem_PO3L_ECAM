@@ -6,11 +6,10 @@ def parse(pathToJson):
     try:
         with open(pathToJson) as jsonFile:
             input = json.load(jsonFile)
-    except:
+    except json.decoder.JSONDecodeError:
         raise Exception("JSONDecodeError : No valid JSON file was provided")
-    
-    return
 
+    return input
 
 
 if __name__ == "__main__":
