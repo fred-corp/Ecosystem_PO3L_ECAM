@@ -3,6 +3,8 @@ var bodyParser = require("body-parser");
 
 let app = express();
 
+var msg = "This website is not constructed yet ! \n It's supposed to pull the data from the GitHub repo every minute though";
+
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
@@ -10,7 +12,7 @@ app.use(express.static('public'));
 
 app.get('/', function(request, response) {
     //response.send("Hello, world!");
-    response.render('home.ejs', {validationMessage: "This website is not constructed yet !"});
+    response.render('home.ejs', {validationMessage: msg});
 });
 
 
