@@ -1,0 +1,63 @@
+@startuml
+
+Ecosystem *-- Life
+Life <-- Animal
+Life <-- Plant
+Animal <-- Carnivorous
+Animal <-- Herbivorous
+Ecosystem <-- Energy
+Energy <-- Meat
+Energy <-- OrganicWaste
+
+class Ecosystem {
+    x : int
+    y : int
+    age : int
+    void method()
+}
+
+class Life {
+    life_points : int
+    energy_reserve : int
+    gender : String
+    age : int
+    
+    void modify_energy()
+    void modify_life_points()
+}
+
+class Animal {
+    
+    vision_zone : Array
+    contact_zone : Array
+    hierarchy : int
+    
+    modify_hierarchy()
+}
+
+class Plant {
+    contact_zone : Array
+    root_zone : Array
+    seeding_zone : Array
+}
+
+class Carnivorous {
+    food_type : String
+}
+
+class Herbivorous {
+    food_type : String
+}
+
+class Meat {
+    age : int
+}
+
+class OrganicWaste {
+}
+
+class Energy {
+    amount : int
+}
+
+@enduml
