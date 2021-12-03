@@ -4,6 +4,10 @@ function loadView (responseLogText = 'No Text specified !') {
   document.getElementById('response-log').innerHTML = responseLogText
 }
 
+document.getElementById("load-example").addEventListener("click", loadExample)
+document.getElementById("simulate").addEventListener("click", simulate)
+document.getElementById("test-backend").addEventListener("click", testBackend)
+
 function testBackend () {
   fetch('/API')
     .then(function (response) {
