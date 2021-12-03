@@ -1,6 +1,6 @@
 window.onload = loadView('')
 
-function loadView (responseLogText = "No Text specified !") {
+function loadView (responseLogText = 'No Text specified !') {
   document.getElementById('response-log').innerHTML = responseLogText
 }
 
@@ -19,9 +19,9 @@ function testBackend () {
 }
 
 function loadExample () {
-  loadView("Load example is not implemented yet..")
+  loadView('Load example is not implemented yet..')
 }
 
 function simulate () {
-  loadView("Simulate is not implemented yet..")
+  loadView('Simulate is not implemented yet..')
 }
