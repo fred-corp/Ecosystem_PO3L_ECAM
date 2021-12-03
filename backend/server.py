@@ -20,6 +20,11 @@ def index():
     return flask.send_from_directory(root, "index.html")
 
 
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "Website is up ⛄️"
+
+
 @app.route("/<path:path>", methods=["GET"])
 def static_proxy(path):
     return flask.send_from_directory(root, path)
