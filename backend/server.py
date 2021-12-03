@@ -7,7 +7,7 @@ root = os.path.join(
     os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
 )
 
-app=flask.Flask(__name__)
+app = flask.Flask(__name__)
 
 
 @app.route("/API", methods=["GET"])
@@ -20,7 +20,7 @@ def index():
     return flask.send_from_directory(root, "index.html")
 
 
-@app.route('/<path:path>', methods=["GET"])
+@app.route("/<path:path>", methods=["GET"])
 def static_proxy(path):
     return flask.send_from_directory(root, path)
 

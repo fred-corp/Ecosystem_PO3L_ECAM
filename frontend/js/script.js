@@ -1,22 +1,23 @@
 let APIResponse = ''
 
-window.onload = loadView();
+window.onload = loadView()
 
 function loadView () {
-  document.getElementById('responseLog').innerHTML = APIResponse
+  document.getElementById('response-log').innerHTML = APIResponse
 }
 
-var form = document.getElementById('signup')
+let form = document.getElementById('signup')
 
 form.addEventListener('submit', function (event) {
   // stop form submission
   event.preventDefault()
-  fetch('/API').then(function (response) {
+  fetch('/API')
+  .then(function (response) {
     return response.text().then(function (text) {
       console.log(text)
       APIResponse = text
-      loadView();
-    });
+      loadView()
+    })
   })
   .catch(function (err) {
     // Une erreur est survenue
