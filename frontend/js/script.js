@@ -1,26 +1,27 @@
-let APIResponse = ''
+window.onload = loadView('')
 
-window.onload = loadView()
-
-function loadView () {
-  document.getElementById('response-log').innerHTML = APIResponse
+function loadView (responseLogText = "No Text specified !") {
+  document.getElementById('response-log').innerHTML = responseLogText
 }
 
-const form = document.getElementById('signup')
-
-form.addEventListener('submit', function (event) {
-  // stop form submission
-  event.preventDefault()
+function testBackend () {
   fetch('/API')
     .then(function (response) {
       return response.text().then(function (text) {
         console.log(text)
-        APIResponse = text
-        loadView()
+        loadView(text)
       })
     })
     .catch(function (err) {
       // Une erreur est survenue
       console.log(err)
     })
-})
+}
+
+function loadExample () {
+  loadView("Load example is not implemented yet..")
+}
+
+function simulate () {
+  loadView("Simulate is not implemented yet..")
+}
