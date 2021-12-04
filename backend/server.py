@@ -1,9 +1,9 @@
+import json
 import os
+import time
 
 import flask
-import json
 import testBackend
-import time
 
 root = os.path.join(
     os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
