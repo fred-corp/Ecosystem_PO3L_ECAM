@@ -9,6 +9,10 @@ root = os.path.join(
     os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
 )
 
+examples = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "ecosystemExampleFiles"
+)
+
 app = flask.Flask(__name__)
 
 
@@ -33,7 +37,7 @@ def api():
 # Homepage
 @app.route("/", methods=["GET"])
 def index():
-    return flask.send_from_directory(root, "index.html")
+    return flask.send_from_directory(root, "index/index.html")
 
 
 # Ping the website (used for GitHub Badge)
