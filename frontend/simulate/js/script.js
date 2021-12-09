@@ -42,11 +42,11 @@ function displayGrid (_data) {
   const population = _data.rounds[_data.rounds.length - 1]
   container.style.setProperty('--grid-rows', rows)
   container.style.setProperty('--grid-cols', cols)
-  for (y = cols - 1; y >= 0; y--) {
-    for (x = 0; x < cols; x++) {
+  for (let y = cols - 1; y >= 0; y--) {
+    for (let x = 0; x < rows; x++) {
       const cell = document.createElement('div')
-      for (i = 0; i < population.length; i++) {
-        if (population[i][8] == x && population[i][9] == y) {
+      for (let i = 0; i < population.length; i++) {
+        if (population[i][8] === x && population[i][9] === y) {
           cell.style.cssText = 'background-color: ' + _data.lifeDefaults[population[i][1]].color + ';'
           cell.onclick = (function (entity) {
             return function () {
@@ -54,7 +54,7 @@ function displayGrid (_data) {
               text = 'UUID : ' + entity[0] + '\n'
               text += 'Lifeform : ' + entity[1] + '\n'
               text += 'Gender : ' + _data.genders[entity[2]] + '\n'
-              if (entity[2] == _data.lifeDefaults[entity[1]].getsPregnant) {
+              if (entity[2] === _data.lifeDefaults[entity[1]].getsPregnant) {
                 text += 'Pregnant : ' + entity[3] + '\n'
               }
               text += 'Age : ' + entity[5] + '\n'

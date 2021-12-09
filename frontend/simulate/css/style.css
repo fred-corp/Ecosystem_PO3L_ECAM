@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+
   --grid-cols: 1;
   --grid-rows: 1;
 }
