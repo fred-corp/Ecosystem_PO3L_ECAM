@@ -36,6 +36,12 @@ def api():
     return jsonFile
 
 
+@app.route("/API/load", methods=["GET"])
+def loadExample():
+    file = open(os.path.join(examples, 'example1.json'), 'r+').read()
+    return file
+
+
 # Homepage
 @app.route("/", methods=["GET"])
 def index():

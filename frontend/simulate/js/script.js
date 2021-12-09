@@ -1,5 +1,7 @@
 window.onload = loadView('')
 
+const fieldSize = [50, 50]
+
 function loadView (responseLogText = 'No Text specified !') {
   document.getElementById('response-log').innerHTML = responseLogText
 }
@@ -24,7 +26,33 @@ function testBackend () {
 
 // Load example ecosystem
 function loadExample () {
-  loadView('Load example is not implemented yet..')
+  fetch('/API/load')
+    .then(function (res) { return res.json() })
+    .then(function (data) {
+      displayGrid(data)
+    })
+}
+
+const container = document.getElementById('simulation-grid')
+
+function displayGrid (_data) {
+  let rows = _data.fieldSize[1]
+  let cols = _data.fieldSize[0]
+  let population = _data.rounds[_data.rounds.length-1]
+  container.style.setProperty('--grid-rows', rows)
+  container.style.setProperty('--grid-cols', cols)
+  for (y = 0; y < rows; y++) {
+    for (x =0; x < cols; x++) {
+      const cell = document.createElement('div')
+      for(i = 0; i < population.length; i++) {
+        if(population[i][8] == x && population[i][9] == y) {
+          cell.style.cssText = 'background-color: #04aa6d;'
+        }
+      }
+      cell.innerText = ''
+      container.appendChild(cell).className = 'grid-item'
+    }
+  }
 }
 
 // Simulate the next step of the ecosystem
