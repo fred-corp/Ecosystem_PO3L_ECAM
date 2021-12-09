@@ -32,6 +32,7 @@
   "diet" : int x,              # 0 : Herbivorous, 1 : Carnivorous, 2 : Omnivorous
   "lifespan" : int x,          # Lifespan of lifeform
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating/spreading seeds again
+  "getsPregnant" : int x,      # Which gender gets pregnant
   "gestation" : int x,         # Number of rounds it takes for a newborn to develop/a seed to grow to a plant
   "hierarchy" : int x          # Hierarchy of the lifeform. A higher hierarchy lifeform can eat a lower hierarchy lifeform,
   "foodDropAmount" : int x     # Amount of food pieces dropped (meat or organic waste)
