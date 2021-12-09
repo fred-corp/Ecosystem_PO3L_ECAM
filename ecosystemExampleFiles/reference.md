@@ -11,6 +11,7 @@
  "starveAfter" : int n,        # Remove 1 FP after n amount of rounds
  "HPFPEquivalence" : int n,    # How much food points you get for one health point
  "meatCompostAfter" : int n,   # How much rounds it takes for a piece of meat to compost
+ "foodRestoreAmount" : int n, # How much food points a piece of meat/organic waste restores
  "visionRadius" : int r,       # Vision radius for everyone
  "contactRadius" : int r,      # Contact radius for everyone
  "rootRadius" : int r,         # Root spread radius for everyone
@@ -26,10 +27,12 @@
 ```python
 {
  str key : {                   # Race of the lifeform
+  "species": str s,            # Species : animal or vegetal
   "lifespan" : int x,          # Lifespan of lifeform
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating/spreading seeds again
   "gestation" : int x,         # Number of rounds it takes for a newborn to develop/a seed to grow to a plant
-  "hierarchy" : int x          # Hierarchy of the lifeform. A higher hierarchy lifeform can eat a lower hierarchy lifeform
+  "hierarchy" : int x          # Hierarchy of the lifeform. A higher hierarchy lifeform can eat a lower hierarchy lifeform,
+  "foodDropAmount" : int x     # Amount of food pieces dropped (meat or organic waste)
  },
  ...
 }

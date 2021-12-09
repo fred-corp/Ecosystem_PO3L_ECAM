@@ -9,6 +9,12 @@ root = os.path.join(
     os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
 )
 
+examples = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"),
+    "ecosystemExampleFiles",
+)
+
+
 app = flask.Flask(__name__)
 
 
@@ -33,7 +39,20 @@ def api():
 # Homepage
 @app.route("/", methods=["GET"])
 def index():
-    return flask.send_from_directory(root, "index.html")
+    return flask.send_from_directory(root, "index/index.html")
+
+
+# Simulate
+@app.route("/simulate", methods=["GET"])
+def simulate():
+    return flask.send_from_directory(root, "simulate/index.html")
+
+
+# About
+@app.route("/about", methods=["GET"])
+def about():
+    return "beep boop I'm a flask server running on a proxmox VM in a basement somewhere in Belgium"
+    # flask.send_from_directory(root, "about/index.html")
 
 
 # Ping the website (used for GitHub Badge)

@@ -6,6 +6,7 @@
 	"starveAfter" : 10,
 	"HPFPEquivalence" : 20,
 	"meatCompostAfter" : 10,
+	"foodRestoreAmount" : 2,
 	"visionRadius" : 12,
 	"contactRadius" : 3,
 	"rootRadius" : 10,
@@ -13,16 +14,20 @@
 	"startRandom" : false,
 	"lifeDefaults" : {
 		"human" : {
+			"species" : "animal",
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
 			"gestation" : 10,
-			"hierarchy" : 5
+			"hierarchy" : 5,
+			"foodDropAmount" : 4
 		},
 		"platypuss" : {
+			"species" : "animal",
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
 			"gestation" : 4,
-			"hierarchy" : 2
+			"hierarchy" : 2,
+			"foodDropAmount" : 1
 		}
 	},
 	"rounds" : [
