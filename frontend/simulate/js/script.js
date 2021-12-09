@@ -8,8 +8,8 @@ function loadView (responseLogText = 'No Text specified !') {
 
 document.getElementById('load-example').addEventListener('click', function () { loadExample() })
 document.getElementById('simulate').addEventListener('click', function () { simulate() })
-document.getElementById('post-json').addEventListener('click', function () { postJson() })
-document.getElementById('test-backend').addEventListener('click', function () { testBackend() })
+//document.getElementById('post-json').addEventListener('click', function () { postJson() })
+//document.getElementById('test-backend').addEventListener('click', function () { testBackend() })
 
 // Test the connection with backend/API
 function testBackend () {
