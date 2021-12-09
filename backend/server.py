@@ -40,10 +40,16 @@ def index():
     return flask.send_from_directory(root, "index/index.html")
 
 
-# Homepage
+# Simulate
 @app.route("/simulate", methods=["GET"])
 def simulate():
     return flask.send_from_directory(root, "simulate/index.html")
+
+
+# About
+@app.route("/about", methods=["GET"])
+def about():
+    return "beep boop I'm a flask server running on a proxmox VM in a basement somewhere in Belgium"#flask.send_from_directory(root, "about/index.html")
 
 
 # Ping the website (used for GitHub Badge)
