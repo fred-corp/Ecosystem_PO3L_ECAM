@@ -1,4 +1,4 @@
-from energy import Energy
+from classes.energy import Energy
 
 
 class OrganicWaste(Energy):

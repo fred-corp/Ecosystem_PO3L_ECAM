@@ -1,4 +1,4 @@
-from ecosystem import Ecosystem
+from classes.ecosystem import Ecosystem
 
 
 class Life(Ecosystem):

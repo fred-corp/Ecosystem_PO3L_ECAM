@@ -1,4 +1,4 @@
-from life import Life
+from classes.life import Life
 
 
 class Animal(Life):
