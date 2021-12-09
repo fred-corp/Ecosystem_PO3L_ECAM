@@ -36,17 +36,29 @@ function loadExample () {
 const container = document.getElementById('simulation-grid')
 
 function displayGrid (_data) {
-  let rows = _data.fieldSize[1]
-  let cols = _data.fieldSize[0]
-  let population = _data.rounds[_data.rounds.length-1]
+  const rows = _data.fieldSize[1]
+  const cols = _data.fieldSize[0]
+  const population = _data.rounds[_data.rounds.length - 1]
   container.style.setProperty('--grid-rows', rows)
   container.style.setProperty('--grid-cols', cols)
   for (y = 0; y < rows; y++) {
-    for (x =0; x < cols; x++) {
+    for (x = 0; x < cols; x++) {
       const cell = document.createElement('div')
-      for(i = 0; i < population.length; i++) {
-        if(population[i][8] == x && population[i][9] == y) {
-          cell.style.cssText = 'background-color: '+_data.lifeDefaults[population[i][1]].color+';'
+      for (i = 0; i < population.length; i++) {
+        if (population[i][8] == x && population[i][9] == y) {
+          cell.style.cssText = 'background-color: ' + _data.lifeDefaults[population[i][1]].color + ';'
+          cell.onclick = (function (entity) {
+            return function () {
+              text = 'UUID : ' + entity[0] + '\n'
+              text += 'Lifeform : ' + entity[1] + '\n'
+              text += 'Gender : ' + entity[2] + '\n'
+              text += 'Pregnant : ' + entity[3] + '\n'
+              text += 'Age : ' + entity[5] + '\n'
+              text += 'HP : ' + entity[6] + '\n'
+              text += 'FP : ' + entity[7]
+              alert(text)
+            }
+          })(population[i])
         }
       }
       cell.innerText = ''
