@@ -40,6 +40,12 @@ def index():
     return flask.send_from_directory(root, "index/index.html")
 
 
+# Homepage
+@app.route("/simulate", methods=["GET"])
+def simulate():
+    return flask.send_from_directory(root, "simulate/index.html")
+
+
 # Ping the website (used for GitHub Badge)
 @app.route("/ping", methods=["GET"])
 def ping():
