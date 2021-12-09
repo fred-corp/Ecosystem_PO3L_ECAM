@@ -10,6 +10,7 @@ h1 {
   text-align: center;
 }
 
+/* Navbar CSS styles */
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -38,6 +39,7 @@ h1 {
 .navbar #active {
   background-color: #04aa6d;
 }
+/* end of Navbar CSS styles */
 
 .buttons {
   text-align: center;
