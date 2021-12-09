@@ -12,6 +12,7 @@
 	"rootRadius" : 10,
 	"seedRadius" : 8,
 	"startRandom" : false,
+	"genders" : ["female", "male", "hermaphrodite"],
 	"lifeDefaults" : {
 		"human" : {
 			"species" : "animal",

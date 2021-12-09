@@ -17,6 +17,7 @@
  "rootRadius" : int r,         # Root spread radius for everyone
  "seedRadius" : int r,         # Seed spread radius for everyone
  "startRandom" : bool s,       # Start the simulation with a random amount of lifes (must specify lifeforms in lifeDefaults)
+ "genders" : [str x, ...],     # List of genders
  "lifeDefaults" : dict forms,  # All lifeforms with their default values (see further dor forms reference)
  "rounds" : list rounds        # All the rounds with the different lifes (see further for rounds reference)
 }
