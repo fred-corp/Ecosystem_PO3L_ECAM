@@ -3,7 +3,6 @@ import sys
 
 from classes.animal import Animal
 
-
 class_list = []
 
 with open (sys.path[4] + "\Ecosystem_PO3L_ECAM\ecosystemExampleFiles\example1.json") as file:
