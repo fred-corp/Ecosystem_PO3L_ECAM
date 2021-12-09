@@ -36,6 +36,7 @@ function loadExample () {
 const container = document.getElementById('simulation-grid')
 
 function displayGrid (_data) {
+  container.innerHTML = ''
   const rows = _data.fieldSize[1]
   const cols = _data.fieldSize[0]
   const population = _data.rounds[_data.rounds.length - 1]
