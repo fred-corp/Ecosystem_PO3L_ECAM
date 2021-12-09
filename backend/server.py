@@ -10,7 +10,8 @@ root = os.path.join(
 )
 
 examples = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "ecosystemExampleFiles"
+    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"),
+    "ecosystemExampleFiles",
 )
 
 
@@ -51,7 +52,7 @@ def simulate():
 @app.route("/about", methods=["GET"])
 def about():
     return "beep boop I'm a flask server running on a proxmox VM in a basement somewhere in Belgium"
-    #flask.send_from_directory(root, "about/index.html")
+    # flask.send_from_directory(root, "about/index.html")
 
 
 # Ping the website (used for GitHub Badge)
