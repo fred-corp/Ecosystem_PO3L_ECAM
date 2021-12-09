@@ -8,7 +8,7 @@ class Plant(Life):
         energy_reserve,
         age,
         gender,
-        contact_zone,     
+        contact_zone,
         root_zone,
         seeding_zone,
         food_type,
