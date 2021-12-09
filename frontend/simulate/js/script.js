@@ -53,7 +53,9 @@ function displayGrid (_data) {
               text = 'UUID : ' + entity[0] + '\n'
               text += 'Lifeform : ' + entity[1] + '\n'
               text += 'Gender : ' + _data.genders[entity[2]] + '\n'
-              text += 'Pregnant : ' + entity[3] + '\n'
+              if(entity[2] == _data.lifeDefaults[entity[1]].getsPregnant) {
+                text += 'Pregnant : ' + entity[3] + '\n'
+              }
               text += 'Age : ' + entity[5] + '\n'
               text += 'HP : ' + entity[6] + '\n'
               text += 'FP : ' + entity[7]
