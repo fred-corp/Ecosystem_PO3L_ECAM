@@ -41,7 +41,7 @@ function displayGrid (_data) {
   const population = _data.rounds[_data.rounds.length - 1]
   container.style.setProperty('--grid-rows', rows)
   container.style.setProperty('--grid-cols', cols)
-  for (y = 0; y < rows; y++) {
+  for (y = cols-1; y >= 0; y--) {
     for (x = 0; x < cols; x++) {
       const cell = document.createElement('div')
       for (i = 0; i < population.length; i++) {
