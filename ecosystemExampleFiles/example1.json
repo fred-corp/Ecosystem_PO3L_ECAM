@@ -51,7 +51,10 @@
 		["925852b6-447c-4d62-a9bd-f575d9df279f", "human", 1, false, 0, 0, 20, 20, 25, 44],
 		["1056303f-551e-4e89-b04e-f4cfe61a1144", "human", 0, false, 0, 0, 20, 20, 39, 12],
 		["cfaba5ae-64e0-4bad-93b4-69855c2a4024", "platypuss", 0, false, 0, 0, 20, 20, 48, 29],
-		["43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "platypuss", 1, false, 0, 0, 20, 20, 22, 33]
+		["43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "platypuss", 1, false, 0, 0, 20, 20, 22, 33],
+		["5dbf8f4d-4d87-4eca-9a8e-e21abf52606c", "cow", 1, false, 0, 0, 20, 20, 17, 12],
+		["920a3311-ae73-4bd6-a594-50b5740d68ed", "cow", 0, false, 0, 0, 20, 20, 1, 7],
+		["351e7c9c-da73-42b7-bbaf-357e094663c5", "cow", 1, false, 0, 0, 20, 20, 14, 27]
 		]
 	]
 }
