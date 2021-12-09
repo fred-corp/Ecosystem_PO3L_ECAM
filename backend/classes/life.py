@@ -9,7 +9,6 @@ class Life(Ecosystem):
         self.gender = gender
         self.food_type = food_type
 
-
     def modify_energy(self, amount):
         self.energy_reserve += amount
 
