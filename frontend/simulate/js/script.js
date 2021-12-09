@@ -1,7 +1,5 @@
 window.onload = loadView('')
 
-const fieldSize = [50, 50]
-
 function loadView (responseLogText = 'No Text specified !') {
   document.getElementById('response-log').innerHTML = responseLogText
 }
@@ -12,6 +10,7 @@ document.getElementById('simulate').addEventListener('click', function () { simu
 // document.getElementById('test-backend').addEventListener('click', function () { testBackend() })
 
 // Test the connection with backend/API
+/*
 function testBackend () {
   fetch('/pingAPI')
     .then(function (response) {
@@ -23,6 +22,7 @@ function testBackend () {
       console.log(err)
     })
 }
+*/
 
 // Load example ecosystem
 function loadExample () {
@@ -77,6 +77,7 @@ function simulate () {
 }
 
 // Test function to see how a JSON object can get sent to and from a backend
+/*
 function postJson () {
   const payload = {
     message: 'A simple payload',
@@ -95,3 +96,4 @@ function postJson () {
     .then(function (res) { return res.json() })
     .then(function (data) { alert(JSON.stringify(data)) })
 }
+*/
