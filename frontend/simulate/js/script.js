@@ -46,7 +46,7 @@ function displayGrid (_data) {
       const cell = document.createElement('div')
       for(i = 0; i < population.length; i++) {
         if(population[i][8] == x && population[i][9] == y) {
-          cell.style.cssText = 'background-color: #04aa6d;'
+          cell.style.cssText = 'background-color: '+_data.lifeDefaults[population[i][1]].color+';'
         }
       }
       cell.innerText = ''

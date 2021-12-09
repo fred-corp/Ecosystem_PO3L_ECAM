@@ -15,6 +15,7 @@
 	"lifeDefaults" : {
 		"human" : {
 			"species" : "animal",
+			"color" : "#c6a14a",
 			"diet" : 2,
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
@@ -24,6 +25,7 @@
 		},
 		"platypuss" : {
 			"species" : "animal",
+			"color" : "#e25f47",
 			"diet" : 1,
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
@@ -33,6 +35,7 @@
 		},
 		"cow" : {
 			"species" : "animal",
+			"color" : "#b2d871",
 			"diet" : 0,
 			"lifespan" : 70,
 			"reproduceCooldown" : 5,

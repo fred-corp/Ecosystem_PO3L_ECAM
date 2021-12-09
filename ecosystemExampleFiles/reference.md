@@ -28,6 +28,7 @@
 {
  str key : {                   # Race of the lifeform
   "species": str s,            # Species : animal or vegetal
+  "color" : str C,             # HEX color code for EcoSym Viewer
   "diet" : int x,              # 0 : Herbivorous, 1 : Carnivorous, 2 : Omnivorous
   "lifespan" : int x,          # Lifespan of lifeform
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating/spreading seeds again
