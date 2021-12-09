@@ -52,7 +52,7 @@ function displayGrid (_data) {
             return function () {
               text = 'UUID : ' + entity[0] + '\n'
               text += 'Lifeform : ' + entity[1] + '\n'
-              text += 'Gender : ' + entity[2] + '\n'
+              text += 'Gender : ' + _data.genders[entity[2]] + '\n'
               text += 'Pregnant : ' + entity[3] + '\n'
               text += 'Age : ' + entity[5] + '\n'
               text += 'HP : ' + entity[6] + '\n'
