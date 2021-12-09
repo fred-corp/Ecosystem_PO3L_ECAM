@@ -11,7 +11,7 @@ class Animal(Life):
         vision_zone,
         contact_zone,
         hierarchy,
-        food_type
+        food_type,
     ):
         super().__init__(life_points, energy_reserve, age, gender, food_type)
         self.vision_zone = vision_zone
