@@ -49,7 +49,7 @@
 		},
 		"seahorse" : {
 			"species" : "animal",
-			"color" : "#d7cf3f",
+			"color" : "#78b8df",
 			"diet" : 0,
 			"lifespan" : 10,
 			"reproduceCooldown" : 1,
