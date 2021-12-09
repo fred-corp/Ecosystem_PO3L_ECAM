@@ -6,7 +6,8 @@ import flask
 import testBackend
 
 root = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
+    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"),
+    "frontend"
 )
 
 examples = os.path.join(
@@ -57,7 +58,7 @@ def simulate():
 # About
 @app.route("/about", methods=["GET"])
 def about():
-    return "beep boop I'm a flask server running on a proxmox VM in a basement somewhere in Belgium"
+    return "I'm a flask server running on a proxmox VM in a basement"
     # flask.send_from_directory(root, "about/index.html")
 
 

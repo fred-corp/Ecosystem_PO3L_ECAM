@@ -61,6 +61,8 @@ p {
   margin: auto;
   height: 75vh;
   width: 75vh;
+  max-height: 75vw;
+  max-width: 75vw;
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
