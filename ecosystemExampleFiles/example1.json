@@ -13,12 +13,14 @@
 	"startRandom" : false,
 	"lifeDefaults" : {
 		"human" : {
+			"species" : "animal",
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
 			"gestation" : 10,
 			"hierarchy" : 5
 		},
 		"platypuss" : {
+			"species" : "animal",
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
 			"gestation" : 4,
