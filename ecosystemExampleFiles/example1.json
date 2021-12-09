@@ -12,6 +12,7 @@
 	"rootRadius" : 10,
 	"seedRadius" : 8,
 	"startRandom" : false,
+	"genders" : ["female", "male", "hermaphrodite"],
 	"lifeDefaults" : {
 		"human" : {
 			"species" : "animal",
@@ -19,6 +20,7 @@
 			"diet" : 2,
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
+			"getsPregnant" : 0,
 			"gestation" : 10,
 			"hierarchy" : 5,
 			"foodDropAmount" : 4
@@ -29,6 +31,7 @@
 			"diet" : 1,
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
+			"getsPregnant" : 0,
 			"gestation" : 4,
 			"hierarchy" : 2,
 			"foodDropAmount" : 1
@@ -39,7 +42,19 @@
 			"diet" : 0,
 			"lifespan" : 70,
 			"reproduceCooldown" : 5,
+			"getsPregnant" : 0,
 			"gestation" : 7,
+			"hierarchy" : 0,
+			"foodDropAmount" : 1
+		},
+		"seahorse" : {
+			"species" : "animal",
+			"color" : "#78b8df",
+			"diet" : 0,
+			"lifespan" : 10,
+			"reproduceCooldown" : 1,
+			"getsPregnant" : 1,
+			"gestation" : 1,
 			"hierarchy" : 0,
 			"foodDropAmount" : 1
 		}
@@ -54,7 +69,11 @@
 		["43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "platypuss", 1, false, 0, 0, 20, 20, 22, 33],
 		["5dbf8f4d-4d87-4eca-9a8e-e21abf52606c", "cow", 1, false, 0, 0, 20, 20, 17, 12],
 		["920a3311-ae73-4bd6-a594-50b5740d68ed", "cow", 0, false, 0, 0, 20, 20, 1, 7],
-		["351e7c9c-da73-42b7-bbaf-357e094663c5", "cow", 1, false, 0, 0, 20, 20, 14, 27]
+		["351e7c9c-da73-42b7-bbaf-357e094663c5", "cow", 1, false, 0, 0, 20, 20, 14, 27],
+		["f30363fe-abce-496b-845f-738dd0fe4a96", "seahorse", 1, false, 0, 0, 20, 20, 18, 22],
+		["6d83e270-c222-45f3-a139-ddf23ae721ee", "seahorse", 0, false, 0, 0, 20, 20, 33, 42],
+		["e616355f-390e-4e3a-a864-b54e27f0851e", "seahorse", 1, false, 0, 0, 20, 20, 44, 6],
+		["6574a724-7d7a-422c-a84d-8711b20ca55c", "seahorse", 0, false, 0, 0, 20, 20, 39, 26]
 		]
 	]
 }
