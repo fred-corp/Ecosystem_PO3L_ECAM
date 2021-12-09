@@ -15,6 +15,7 @@
 	"lifeDefaults" : {
 		"human" : {
 			"species" : "animal",
+			"diet" : 2,
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
 			"gestation" : 10,
@@ -23,10 +24,20 @@
 		},
 		"platypuss" : {
 			"species" : "animal",
+			"diet" : 1,
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
 			"gestation" : 4,
 			"hierarchy" : 2,
+			"foodDropAmount" : 1
+		},
+		"cow" : {
+			"species" : "animal",
+			"diet" : 0,
+			"lifespan" : 70,
+			"reproduceCooldown" : 5,
+			"gestation" : 7,
+			"hierarchy" : 0,
 			"foodDropAmount" : 1
 		}
 	},
