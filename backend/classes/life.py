@@ -1,5 +1,6 @@
 from ecosystem import Ecosystem
 
+
 class Life(Ecosystem):
     def __init__(self, life_points, energy_reserve, age, gender, food_type):
         self.life_points = life_points

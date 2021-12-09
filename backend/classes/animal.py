@@ -1,5 +1,6 @@
 from life import Life
 
+
 class Animal(Life):
     def __init__(self, life_points, energy_reserve, age, gender, vision_zone, contact_zone, hierarchy, food_type):
         super().__init__(life_points, energy_reserve, age, gender, food_type)
