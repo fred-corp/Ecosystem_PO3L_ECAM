@@ -3,15 +3,15 @@ from classes.ecosystem import Ecosystem
 
 class Life(Ecosystem):
     def __init__(
-            self,
-            life_points,
-            energy_reserve,
-            age,
-            gender,
-            food_type,
-            vision_zone,
-            contact_zone
-            ):
+        self,
+        life_points,
+        energy_reserve,
+        age,
+        gender,
+        food_type,
+        vision_zone,
+        contact_zone
+    ):
         self.life_points = life_points
         self.energy_reserve = energy_reserve
         self.age = age
