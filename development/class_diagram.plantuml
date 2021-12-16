@@ -18,23 +18,21 @@ class Life {
     energy_reserve : int
     gender : String
     age : int
-    food_type: String
+    food_type : String
+    vision_zone : Array
+    contact_zone : Array
     
     modify_energy()
     modify_life_points()
 }
 
 class Animal {
-    
-    vision_zone : Array
-    contact_zone : Array
     hierarchy : int
     
     modify_hierarchy()
 }
 
 class Plant {
-    contact_zone : Array
     root_zone : Array
     seeding_zone : Array
 }

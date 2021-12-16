@@ -7,9 +7,9 @@ class_list = []
 
 path = os.path.dirname(os.path.abspath(__file__)).removesuffix("backend")
 
-with open(
-    os.path.join(path, "ecosystemExampleFiles", "example1.json")
-    ) as file:
+ecosystem_path = os.path.join(path, "ecosystemExampleFiles", "example1.json")
+
+with open(ecosystem_path) as file:
     data = json.load(file)
     rounds = data["rounds"]
     for life in rounds[0]:
@@ -29,3 +29,5 @@ with open(
             )
         elif life_data["species"] == "plant":
             pass
+
+print(class_list)
