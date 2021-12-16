@@ -10,7 +10,7 @@ class Life(Ecosystem):
         gender,
         food_type,
         vision_zone,
-        contact_zone
+        contact_zone,
     ):
         self.life_points = life_points
         self.energy_reserve = energy_reserve

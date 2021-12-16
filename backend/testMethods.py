@@ -21,10 +21,10 @@ with open(ecosystem_path) as file:
                     life[7],
                     life[5],
                     life[2],
+                    life_data["diet"],
                     data["visionRadius"],
                     data["contactRadius"],
                     life_data["hierarchy"],
-                    life_data["diet"],
                 )
             )
         elif life_data["species"] == "plant":
