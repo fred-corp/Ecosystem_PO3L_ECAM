@@ -3,15 +3,14 @@ name: Code Linter
 on: push
 
 jobs:
-  super-lint:
+  lint:
     name: Lint code base
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
+      - name: Run Linter
+        uses: wearerequired/lint-action@v1
+        with:
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.github_token }}
+          #enable linters
+          black: false
