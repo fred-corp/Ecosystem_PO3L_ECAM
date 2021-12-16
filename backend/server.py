@@ -6,8 +6,7 @@ import flask
 import testBackend
 
 root = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"),
-    "frontend"
+    os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
 )
 
 examples = os.path.join(
