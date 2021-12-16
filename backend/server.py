@@ -58,8 +58,7 @@ def simulate():
 # About
 @app.route("/about", methods=["GET"])
 def about():
-    return "I'm a flask server running on a proxmox VM in a basement"
-    # flask.send_from_directory(root, "about/index.html")
+    return flask.send_from_directory(root, "about/index.html")
 
 
 # Ping the website (used for GitHub Badge)
