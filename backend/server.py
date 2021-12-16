@@ -58,7 +58,7 @@ def simulate():
 # About
 @app.route("/about", methods=["GET"])
 def about():
-    flask.send_from_directory(root, "about/index.html")
+    return flask.send_from_directory(root, "about/index.html")
 
 
 # Ping the website (used for GitHub Badge)
