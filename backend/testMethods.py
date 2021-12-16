@@ -1,11 +1,15 @@
 import json
-import sys
+import os
 
 from classes.animal import Animal
 
 class_list = []
 
-with open (sys.path[4] + "\Ecosystem_PO3L_ECAM\ecosystemExampleFiles\example1.json") as file:
+path = os.path.dirname(os.path.abspath(__file__)).removesuffix("backend")
+
+with open(
+    os.path.join(path, "ecosystemExampleFiles", "example1.json")
+    ) as file:
     data = json.load(file)
     rounds = data["rounds"]
     for life in rounds[0]:
@@ -20,7 +24,7 @@ with open (sys.path[4] + "\Ecosystem_PO3L_ECAM\ecosystemExampleFiles\example1.js
                     data["visionRadius"],
                     data["contactRadius"],
                     life_data["hierarchy"],
-                    life_data["diet"]
+                    life_data["diet"],
                 )
             )
         elif life_data["species"] == "plant":
