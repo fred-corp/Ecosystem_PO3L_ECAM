@@ -13,7 +13,13 @@ class Plant(Life):
         seeding_zone,
         food_type,
     ):
-        super().__init__(life_points, energy_reserve, age, gender, food_type)
-        self.contact_zone = contact_zone
+        super().__init__(
+            life_points,
+            energy_reserve,
+            age,
+            gender,
+            food_type,
+            contact_zone
+            )
         self.root_zone = root_zone
         self.seeding_zone = seeding_zone
