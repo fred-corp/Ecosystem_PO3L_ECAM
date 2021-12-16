@@ -15,3 +15,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           #enable linters
           black: false
+          stylelint: true
+          Flake8: true
+          ESLint: true
