@@ -19,7 +19,7 @@ class Plant(Life):
             age,
             gender,
             food_type,
-            vision_zone,
+            0,
             contact_zone,
         )
         self.root_zone = root_zone
