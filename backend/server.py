@@ -74,4 +74,4 @@ def static_proxy(path):
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=3000, host=sys.argv[2])
+    app.run(debug=False, port=3000, host=sys.argv[1])
