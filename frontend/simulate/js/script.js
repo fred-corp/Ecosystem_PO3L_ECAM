@@ -26,7 +26,7 @@ function testBackend () {
 
 // Load example ecosystem
 function loadExample () {
-  fetch('/API/load')
+  window.fetch('/API/load')
     .then(function (res) { return res.json() })
     .then(function (data) {
       displayGrid(data)
@@ -60,7 +60,7 @@ function displayGrid (_data) {
               text += 'Age : ' + entity[5] + '\n'
               text += 'HP : ' + entity[6] + '\n'
               text += 'FP : ' + entity[7]
-              alert(text)
+              window.alert(text)
             }
           })(population[i])
         }
