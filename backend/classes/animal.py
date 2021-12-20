@@ -19,9 +19,9 @@ class Animal(Life):
             age,
             gender,
             food_type,
-            vision_zone,
             contact_zone,
         )
+        self.vision_zone = vision_zone
         self.hierarchy = hierarchy
 
     def modify_hierarchy(self, amount):

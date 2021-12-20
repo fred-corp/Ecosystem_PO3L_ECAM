@@ -9,7 +9,6 @@ class Life(Ecosystem):
         age,
         gender,
         food_type,
-        vision_zone,
         contact_zone,
     ):
         self.life_points = life_points
@@ -17,7 +16,6 @@ class Life(Ecosystem):
         self.age = age
         self.gender = gender
         self.food_type = food_type
-        self.vision_zone = vision_zone
         self.contact_zone = contact_zone
 
     def modify_energy(self, amount):
@@ -25,3 +23,6 @@ class Life(Ecosystem):
 
     def modify_life_points(self, amount):
         self.life_points += amount
+
+    def __del__(self):
+        pass

@@ -1,0 +1,10 @@
+@startuml
+
+participant application
+participant server
+participant simulation
+
+application -> server: post JSON
+server -> simulation: send round[-1]
+
+@enduml
