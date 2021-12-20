@@ -2,6 +2,7 @@ import json
 import os
 
 from classes.animal import Animal
+from classes.plant import Plant
 
 class_list = []
 
@@ -22,6 +23,7 @@ with open(ecosystem_path) as file:
         if life_data["species"] == "animal":
             class_list.append(
                 Animal(
+                    life[0],
                     life[6],
                     life[7],
                     life[5],
@@ -30,29 +32,56 @@ with open(ecosystem_path) as file:
                     data["visionRadius"],
                     data["contactRadius"],
                     life_data["hierarchy"],
+                    life[8],
+                    life[9],
                 )
             )
             ecosystem[life[8]][life[9]] = life[0]
         elif life_data["species"] == "plant":
-            pass
+            class_list.append(
+                Plant(
+                    life[0],
+                    life[6],
+                    life[7],
+                    life[5],
+                    life[2],
+                    data["contactRadius"],
+                    data["rootRadius"],
+                    data["seedRadius"],
+                    "organicwaste",
+                    life[8],
+                    life[9],
+                )
+            )
 
-print(ecosystem)
+# print(ecosystem)
 
 
-def seek_zone():
+def seek():
     """return a list of predators, preys or food inside the vision zone
     of an animal
     """
     pass
 
 
-def contact_zone():
+def find_contacts(type, zone, hierarchy):
     """return a list of:
     - for a carnivore: animals to attack, animals to reproduce with, predators
     - for a herbivore: plants to eat, animals to reproduce with, predators
     - for a plant: plants to reproduce with
     """
-    pass
+    contact_list = []
+    for coord in zone:
+        if ecosystem[coord[0]][coord[1]] != 0:
+            if type == 0 or type == 2:
+                contact_list.append(coord)
+            elif type == 1 or type == 2:
+                for life in class_list:
+                    if life.uid == ecosystem[coord[0]][coord[1]]:
+                        if life.hierarchy < hierarchy:
+                            contact_list.append(coord)
+                            break
+    return contact_list
 
 
 def attack():
@@ -87,7 +116,7 @@ def drop_organicwaste():
 
 
 def move():
-    """"move an animal"""
+    """"move an animal (to food or to reproduce or random)"""
     pass
 
 
@@ -105,5 +134,16 @@ def decease():
     """decease if health points are 0
     - animal: destroy class and create meat
     - plant: destroy class and create organic waste
+    - meat: destroy class en create organic waste
     """
     pass
+
+
+for life in class_list:
+    if type(life) == Animal:
+        contacts = find_contacts(
+            life.food_type,
+            life.get_contact_zone(rows, cols),
+            life.hierarchy
+            )
+        print(contacts)
