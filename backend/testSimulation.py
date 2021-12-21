@@ -14,7 +14,6 @@ with open(ecosystem_path) as file:
     data = json.load(file)
     rounds = data["rounds"]
 
-    # a transformer en classe?
     rows, cols = data["fieldSize"][0], data["fieldSize"][1]
     ecosystem = [([0]*cols) for i in range(rows)]
 
@@ -64,23 +63,33 @@ def seek():
     pass
 
 
-def find_contacts(type, zone, hierarchy):
-    """return a list of:
-    - for a carnivore: animals to attack, animals to reproduce with, predators
-    - for a herbivore: plants to eat, animals to reproduce with, predators
+def find_contacts(sort, diet, zone, hierarchy, gender):
+    """return a dict with:
+    - for a carnivore: animals to attack, animals to reproduce with
+    - for a herbivore: plants to eat, animals to reproduce with
     - for a plant: plants to reproduce with
     """
-    contact_list = []
+    contact_list = {"food": [], "partners": []}
     for coord in zone:
         if ecosystem[coord[0]][coord[1]] != 0:
-            if type == 0 or type == 2:
-                contact_list.append(coord)
-            elif type == 1 or type == 2:
+            if sort == "animal":
                 for life in class_list:
                     if life.uid == ecosystem[coord[0]][coord[1]]:
-                        if life.hierarchy < hierarchy:
-                            contact_list.append(coord)
+                        # find plants for a herbivore
+                        if diet == 0 and type(life) == Plant:
+                            contact_list["food"].append(coord)
                             break
+                        # find animals to reproduce with
+                        # todo: check age, race and break
+                        if life.gender != gender:
+                            pass
+                        # find animals to attack for a carnivore
+                        if diet == 1 and type(life) == Animal:
+                            if life.hierarchy < hierarchy:
+                                contact_list["food"].append(coord)
+                                break
+            elif sort == "plant":
+                pass
     return contact_list
 
 
@@ -130,11 +139,11 @@ def convert_life_point():
     pass
 
 
-def decease():
-    """decease if health points are 0
+def die():
+    """die if health points are 0
     - animal: destroy class and create meat
     - plant: destroy class and create organic waste
-    - meat: destroy class en create organic waste
+    - meat: destroy class and create organic waste
     """
     pass
 
@@ -142,8 +151,26 @@ def decease():
 for life in class_list:
     if type(life) == Animal:
         contacts = find_contacts(
+            "animal",
             life.food_type,
             life.get_contact_zone(rows, cols),
-            life.hierarchy
+            life.hierarchy,
+            life.gender
             )
         print(contacts)
+
+    elif type(life) == Plant:
+        contacts = find_contacts(
+            "plant",
+            life.food_type,
+            life.get_contact_zone(rows, cols),
+            0,
+            life.gender
+            )
+    # simulation order:
+    # - seek
+    # - attack
+    # - eat
+    # - reproduce
+    # - drop organic waste
+    # - move

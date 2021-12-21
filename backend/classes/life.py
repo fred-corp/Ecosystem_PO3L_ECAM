@@ -14,7 +14,7 @@ class Life(Ecosystem):
         pos_x,
         pos_y,
     ):
-        self.uid = id
+        self.uid = uid
         self.life_points = life_points
         self.energy_reserve = energy_reserve
         self.age = age
