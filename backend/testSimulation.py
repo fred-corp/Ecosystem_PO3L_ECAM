@@ -20,9 +20,14 @@ with open(ecosystem_path) as file:
     for life in rounds[0]:
         life_data = data["lifeDefaults"][life[1]]
         if life_data["species"] == "animal":
+            if life[5] > data["lifeDefaults"][life[1]]["gestation"]:
+                gestated = True
+            else:
+                gestated = False
             class_list.append(
                 Animal(
                     life[0],
+                    data["lifeDefaults"][life[1]],
                     life[6],
                     life[7],
                     life[5],
@@ -33,6 +38,7 @@ with open(ecosystem_path) as file:
                     life_data["hierarchy"],
                     life[8],
                     life[9],
+                    gestated,
                 )
             )
             ecosystem[life[8]][life[9]] = life[0]
@@ -63,13 +69,13 @@ def seek():
     pass
 
 
-def find_contacts(sort, diet, zone, hierarchy, gender):
+def find_contacts(sort, diet, zone, hierarchy, gender, gestated, specie):
     """return a dict with:
     - for a carnivore: animals to attack, animals to reproduce with
     - for a herbivore: plants to eat, animals to reproduce with
     - for a plant: plants to reproduce with
     """
-    contact_list = {"food": [], "partners": []}
+    contact_list = {"prey": [], "meat": [], "partners": []}
     for coord in zone:
         if ecosystem[coord[0]][coord[1]] != 0:
             if sort == "animal":
@@ -80,16 +86,23 @@ def find_contacts(sort, diet, zone, hierarchy, gender):
                             contact_list["food"].append(coord)
                             break
                         # find animals to reproduce with
-                        # todo: check age, race and break
-                        if life.gender != gender:
-                            pass
+                        if gestated is True and life.gestated is True:
+                            if life.gender != gender and specie == life.specie:
+                                contact_list["partners"].append(coord)
+                                break
                         # find animals to attack for a carnivore
                         if diet == 1 and type(life) == Animal:
                             if life.hierarchy < hierarchy:
                                 contact_list["food"].append(coord)
                                 break
+                        # todo: add meat
             elif sort == "plant":
-                pass
+                if gestated is True:
+                    for life in class_list:
+                        if life.uid == ecosystem[coord[0]][coord[1]]:
+                            if life.gender != gender and life.gestated is True:
+                                contact_list["partners"].append(coord)
+                                break
     return contact_list
 
 
@@ -155,9 +168,15 @@ for life in class_list:
             life.food_type,
             life.get_contact_zone(rows, cols),
             life.hierarchy,
-            life.gender
+            life.gender,
+            life.gestated,
+            life.specie
             )
-        print(contacts)
+        # attack()
+        # eat()
+        # reproduce()
+        # drop_organicwaste()
+        # move()
 
     elif type(life) == Plant:
         contacts = find_contacts(
@@ -165,12 +184,7 @@ for life in class_list:
             life.food_type,
             life.get_contact_zone(rows, cols),
             0,
-            life.gender
+            life.gender,
+            life.gestated,
+            life.specie
             )
-    # simulation order:
-    # - seek
-    # - attack
-    # - eat
-    # - reproduce
-    # - drop organic waste
-    # - move

@@ -5,6 +5,7 @@ class Animal(Life):
     def __init__(
         self,
         uid,
+        specie,
         life_points,
         energy_reserve,
         age,
@@ -15,9 +16,11 @@ class Animal(Life):
         hierarchy,
         pos_x,
         pos_y,
+        gestated,
     ):
         super().__init__(
             uid,
+            specie,
             life_points,
             energy_reserve,
             age,
@@ -26,6 +29,7 @@ class Animal(Life):
             contact_zone,
             pos_x,
             pos_y,
+            gestated,
         )
         self.vision_zone = vision_zone
         self.hierarchy = hierarchy

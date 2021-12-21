@@ -5,6 +5,7 @@ class Life(Ecosystem):
     def __init__(
         self,
         uid,
+        specie,
         life_points,
         energy_reserve,
         age,
@@ -13,8 +14,10 @@ class Life(Ecosystem):
         contact_zone,
         pos_x,
         pos_y,
+        gestated,
     ):
         self.uid = uid
+        self.specie = specie
         self.life_points = life_points
         self.energy_reserve = energy_reserve
         self.age = age
@@ -23,6 +26,7 @@ class Life(Ecosystem):
         self.contact_zone = contact_zone
         self.pos_x = pos_x
         self.pos_y = pos_y
+        self.gestated = gestated
 
     def modify_energy(self, amount):
         self.energy_reserve += amount
