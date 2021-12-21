@@ -1,8 +1,10 @@
 import json
 import os
+import random
 
 from classes.animal import Animal
 from classes.plant import Plant
+from classes.meat import Meat
 
 class_list = []
 
@@ -83,7 +85,7 @@ def find_contacts(sort, diet, zone, hierarchy, gender, gestated, specie):
                     if life.uid == ecosystem[coord[0]][coord[1]]:
                         # find plants for a herbivore
                         if diet == 0 and type(life) == Plant:
-                            contact_list["food"].append(coord)
+                            contact_list["prey"].append(coord)
                             break
                         # find animals to reproduce with
                         if gestated is True and life.gestated is True:
@@ -93,7 +95,7 @@ def find_contacts(sort, diet, zone, hierarchy, gender, gestated, specie):
                         # find animals to attack for a carnivore
                         if diet == 1 and type(life) == Animal:
                             if life.hierarchy < hierarchy:
-                                contact_list["food"].append(coord)
+                                contact_list["prey"].append(coord)
                                 break
                         # todo: add meat
             elif sort == "plant":
@@ -106,17 +108,25 @@ def find_contacts(sort, diet, zone, hierarchy, gender, gestated, specie):
     return contact_list
 
 
-def attack():
+def attack(contacts):
     """reduce hp of an animal
     - for a carnivore: attack an animal with a lower hierarchy inside the
     contact zone
     """
-    pass
+    preys = contacts["prey"]
+
+    target = random.choice(preys)
+
+    for life in class_list:
+        if life.uid == ecosystem[target[0]][target[1]]:
+            # change food drop amount
+            class_list.append(Meat(life.uid, 10, 0, life.pos_x, life.pos_y))
+            del life
 
 
 def eat():
     """modify the energy reserve of a life
-    - for a carnivore: eat meat inside the contact zone
+    - for a carnivore: eat meat inside the contact zoneP
     - for a herbivore: eat plants inside the contact zone
     - for a plant: eat organic waste inside the root zone
     """
@@ -172,7 +182,8 @@ for life in class_list:
             life.gestated,
             life.specie
             )
-        # attack()
+        if life.diet == 1:
+            attack(contacts)
         # eat()
         # reproduce()
         # drop_organicwaste()
