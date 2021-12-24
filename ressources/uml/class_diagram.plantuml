@@ -1,0 +1,91 @@
+@startuml classes_classes
+set namespaceSeparator none
+
+class "Ecosystem" as classes.ecosystem.Ecosystem {
+  objects : list
+  size_x: int
+  size_y: int
+  add_object(object)
+  get_index(object)
+  get_object_by_coord(x, y)
+  remove_object(object)
+}
+
+class "Life" as classes.life.Life {
+  age : int
+  energy : int
+  life_points : int
+  x : int
+  y : int
+  increase_age()
+  make_move(coord)
+  modify_energy(amount)
+  modify_life_points(amount)
+}
+
+class "Food" as classes.food.Food {
+  energy: int
+  x: int
+  y: int
+  modify_energy(amount)
+}
+
+abstract class "Animal" as classes.animal.Animal {
+  contact_radius : int
+  gender : String
+  vision_radius : int
+  {abstract} eat_meat()
+  gestated(min_age)
+  get_contact_zone(size)
+  get_vision_zone(size)
+}
+class "Carnivore" as classes.carnivore.Carnivore {
+  eat_meat() {return True}
+}
+
+class "Herbivore" as classes.herbivore.Herbivore {
+  eat_meat() {return False}
+}
+
+class "Meat" as classes.meat.Meat {
+  age: int
+  meat_rot_age : int
+  increase_age()
+}
+class "OrganicWaste" as classes.organic_waste.OrganicWaste {
+}
+class "Plant" as classes.plant.Plant {
+  root_radius : int
+  seed_radius : int
+  get_root_zone(size)
+  get_seed_zone(size)
+}
+class "Sheep" as classes.sheep.Sheep {
+  max_age : int
+  max_energy : int
+  max_move : int
+}
+class "Wolf" as classes.wolf.Wolf {
+  max_age : int
+  max_energy : int
+  max_move : int
+}
+
+class "Carrot" as classes.carrot.Carrot {
+  max_age : int
+  max_energy : int
+  min_seed_age : int
+}
+
+classes.ecosystem.Ecosystem *-- classes.life.Life
+classes.ecosystem.Ecosystem *-- classes.food.Food
+classes.life.Life <|-- classes.animal.Animal
+classes.life.Life <|-- classes.plant.Plant
+classes.food.Food <|-- classes.meat.Meat
+classes.food.Food <|-- classes.organic_waste.OrganicWaste
+classes.animal.Animal <|-- classes.herbivore.Herbivore
+classes.plant.Plant <|-- classes.carrot.Carrot
+classes.animal.Animal <|-- classes.carnivore.Carnivore
+classes.herbivore.Herbivore <|-- classes.sheep.Sheep
+classes.carnivore.Carnivore <|-- classes.wolf.Wolf
+@enduml
