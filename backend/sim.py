@@ -45,4 +45,7 @@ def simulateNextStep(ecoSymDict) :
 if __name__ == "__main__":
     with open(sys.argv[1]) as json_file:
         data = json.load(json_file)
-        print(simulateNextStep(data))
+        with open('ecosystem.json', 'w') as outputFile:
+            newData = simulateNextStep(data)
+            outputFile.write(json.dumps(newData, indent=2))
+            print(newData)
