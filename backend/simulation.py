@@ -1,4 +1,5 @@
 import random
+import uuid
 
 from classes.animal import Animal
 from classes.plant import Plant
