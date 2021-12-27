@@ -4,21 +4,32 @@ from classes.life import Life
 class Plant(Life):
     def __init__(
         self,
+        UUID,
+        lifeform,
         x,
         y,
-        life_points,
-        energy,
         age,
+        lifespan,
+        health_points,
+        max_health_points,
+        energy_points,
+        max_energy_points,
+        adultAt,
         root_radius,
         seed_radius,
     ):
         super().__init__(
+            UUID,
+            lifeform,
             x,
             y,
-            life_points,
-            energy,
             age,
+            health_points,
+            energy_points,
+            max_energy_points,
+            lifespan,
         )
+        self.adultAt = adultAt
         self.root_radius = root_radius
         self.seed_radius = seed_radius
 

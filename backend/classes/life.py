@@ -5,21 +5,21 @@ class Life:
         lifeform,
         x,
         y,
-        life_points,
-        energy,
-        max_energy,
         age,
-        max_age,
+        health_points,
+        energy_points,
+        max_energy_points,
+        lifespan,
     ):
         self.UUID = UUID
         self.lifeform = lifeform
         self.x = x
         self.y = y
-        self.life_points = life_points
-        self.energy_points = energy
-        self.max_energy = max_energy
+        self.health_points = health_points
+        self.energy_points = energy_points
+        self.max_energy_points = max_energy_points
         self.age = age
-        self.max_age = max_age
+        self.lifespan = lifespan
 
     def modify_energy(self, amount):
         self.energy_points += amount

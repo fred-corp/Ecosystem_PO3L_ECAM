@@ -27,10 +27,10 @@ class Animal(Life, ABC):
             lifeform,
             x,
             y,
+            age,
             health_points,
             energy_points,
             max_energy_points,
-            age,
             lifespan,
         )
         self.gender = gender
