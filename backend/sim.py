@@ -1,15 +1,8 @@
 import json
 import sys
-import time
 
-from ecoSymFunctions import *
+from ecoSymFunctions import creatGrid, addPopulation, process, exportEcosystemToDict
 
-from classes.animal import Animal
-from classes.organic_waste import OrganicWaste
-from classes.plant import Plant
-from classes.meat import Meat
-from classes.carnivore import Carnivore
-from classes.herbivore import Herbivore
 from classes.ecosystem import Ecosystem
 
 # functions
