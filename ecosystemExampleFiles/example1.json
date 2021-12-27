@@ -15,6 +15,14 @@
 	"genders" : ["female", "male", "hermaphrodite"],
 	"types" : ["carnivore", "herbivore", "plant", "meat", "organicwaste"],
 	"lifeFormDefaults" : {
+		"meat" : {
+			"type" : 3,
+			"color" : "#aa1111"
+		},
+		"organicWaste" : {
+			"type" : 4,
+			"color" : "#f0f0f0"
+		},
 		"human" : {
 			"type" : 0,
 			"color" : "#c6a14a",
@@ -63,9 +71,9 @@
 			"type" : 2,
 			"color" : "#00FF00",
 			"lifespan" : 500,
+			"adultAt" : 60,
 			"rootRadius" : 20,
-			"seedRadius" : 80,
-			"adultAt" : 60
+			"seedRadius" : 80
 		}
 	},
 	"rounds" : [
