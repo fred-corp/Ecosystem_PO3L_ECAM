@@ -17,3 +17,6 @@ class Ecosystem:
         for object in self.objects:
             if x == object.x and y == object.y:
                 return object
+
+    def __str__(self) : 
+        return str(self.objects)
