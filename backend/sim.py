@@ -19,26 +19,10 @@ def create_ecosystem(x, y):
     generate(ecosystem)
     return ecosystem
 
-
-# Create a grid to display in pygame
-def create_grid(x, y):
-
-    grid = []
-    for row in range(y):
-        grid.append([])
-        for column in range(x):
-            grid[row].append(0)
-    return grid
-
-
 # Main application
 def main():
     ecosystem = create_ecosystem(100, 50)
     screen = create_screen(ecosystem)
-
-    # generate grid
-    grid = create_grid(ecosystem.size_x, ecosystem.size_y)
-    grid = update_grid(ecosystem, grid)
 
     # main application loop:
     while True:
