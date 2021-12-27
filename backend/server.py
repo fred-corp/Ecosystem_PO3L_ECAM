@@ -27,15 +27,9 @@ def pingAPI():
 
 
 # Main API
-# For now it only responds with a modification of a JSON object it received
-@app.route("/API", methods=["POST"])
+@app.route("/API", methods=["GET"])
 def api():
-    data = flask.request.form.getlist("json")
-    jsonFile = json.loads(data[0])
-    print(jsonFile)
-    jsonFile["response"] = "Answer from the backend :D"
-    time.sleep(10)
-    return jsonFile
+    return ":)"
 
 
 @app.route("/API/load", methods=["GET"])
