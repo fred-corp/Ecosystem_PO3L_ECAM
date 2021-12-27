@@ -5,6 +5,7 @@ import sys
 
 import flask
 import testBackend
+from sim import simulateNextStep
 
 root = os.path.join(
     os.path.dirname(os.path.abspath(__file__)).removesuffix("/backend"), "frontend"
@@ -42,6 +43,13 @@ def loadExample():
     file = open(os.path.join(examples, "example1.json"), "r+").read()
     return file
 
+@app.route("/API/simulate", methods=["POST"])
+def simulate():
+    data = flask.request.form.getlist("json")
+    ecoSymDict = json.loads(data[0])
+    newEcoSymDict = simulateNextStep(ecoSymDict)
+    return newEcoSymDict
+
 
 # Homepage
 @app.route("/", methods=["GET"])
@@ -51,7 +59,7 @@ def index():
 
 # Simulate
 @app.route("/simulate", methods=["GET"])
-def simulate():
+def simulate_page():
     return flask.send_from_directory(root, "simulate/index.html")
 
 
