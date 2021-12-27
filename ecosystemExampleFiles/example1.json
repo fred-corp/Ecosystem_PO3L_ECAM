@@ -12,6 +12,7 @@
 	"defaultRootRadius" : 10,
 	"defaultSeedRadius" : 8,
 	"startRandom" : false,
+	"keepHistory" : false,
 	"genders" : ["female", "male", "hermaphrodite"],
 	"types" : ["carnivore", "herbivore", "plant", "meat", "organicwaste"],
 	"lifeFormDefaults" : {

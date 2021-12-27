@@ -17,6 +17,7 @@
  "defaultRootRadius" : int r,     # Root spread radius for everyone
  "defaultSeedRadius" : int r,     # Seed spread radius for everyone
  "startRandom" : bool s,          # Start the simulation with a random amount of lifes (must specify lifeforms in lifeDefaults)
+ "keepHistory" : bool k,          # Wether all the rounds should be kept stored in the json or only the last
  "genders" : [str x, ...],        # List of genders
  "types" : [str t, ...],          # List of types of entities (for example carnivore, herbivore, plant, meat, organic waste)
  "lifeFormDefaults" : dict forms, # All lifeforms with their default values (see further dor forms reference)

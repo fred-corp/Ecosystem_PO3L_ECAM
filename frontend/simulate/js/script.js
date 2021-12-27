@@ -75,7 +75,7 @@ function simulate () {
       .then(function (res) { return res.json() })
       .then(function (data) { 
         ecoSymDict = data
-        console.log(ecoSymDict)
+        loadView('')
         displayGrid(ecoSymDict) })
   }
 }

@@ -111,7 +111,10 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
                     itemDict["gestationCooldown"] = 0
         newRound.append(itemDict)
 
-    newEcoSymDist["rounds"].append(newRound)
+    if (len(newEcoSymDist["rounds"]) == 1) or (oldEcoSymDict["keepHistory"]):
+        newEcoSymDist["rounds"].append(newRound)
+    else :
+        newEcoSymDist["rounds"][1] = newRound
         
     return newEcoSymDist
 
