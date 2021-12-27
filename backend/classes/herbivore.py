@@ -15,6 +15,7 @@ class Herbivore(Animal):
         max_energy_points,
         gender,
         gets_pregnant,
+        adultAt,
         vision_radius,
         contact_radius,
         max_move
@@ -31,6 +32,7 @@ class Herbivore(Animal):
                 max_energy_points,
                 gender,
                 gets_pregnant,
+                adultAt,
                 vision_radius,
                 contact_radius,
                 max_move
