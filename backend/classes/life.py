@@ -2,6 +2,7 @@ class Life:
     def __init__(
         self,
         UUID,
+        lifeform,
         x,
         y,
         life_points,
@@ -11,16 +12,17 @@ class Life:
         max_age,
     ):
         self.UUID = UUID
+        self.lifeform = lifeform
         self.x = x
         self.y = y
         self.life_points = life_points
-        self.energy = energy
+        self.energy_points = energy
         self.max_energy = max_energy
         self.age = age
         self.max_age = max_age
 
     def modify_energy(self, amount):
-        self.energy += amount
+        self.energy_points += amount
 
     def modify_life_points(self, amount):
         self.life_points += amount

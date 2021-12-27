@@ -5,6 +5,7 @@ class Carnivore(Animal):
     def __init__(
         self,
         UUID,
+        lifeform,
         x,
         y,
         age,
@@ -22,6 +23,7 @@ class Carnivore(Animal):
     ):
         super().__init__(
                 UUID,
+                lifeform,
                 x,
                 y,
                 age,

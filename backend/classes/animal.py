@@ -6,6 +6,7 @@ class Animal(Life, ABC):
     def __init__(
         self,
         UUID,
+        lifeform,
         x,
         y,
         age,
@@ -23,6 +24,7 @@ class Animal(Life, ABC):
     ):
         super().__init__(
             UUID,
+            lifeform,
             x,
             y,
             health_points,
