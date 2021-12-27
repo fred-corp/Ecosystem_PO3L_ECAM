@@ -6,13 +6,9 @@ from classes.plant import Plant
 from classes.organic_waste import OrganicWaste
 from classes.meat import Meat
 
-from classes.wolf import Wolf
-from classes.sheep import Sheep
-from classes.carrot import Carrot
 
-
+# Find objects in a specified zone
 def seek(zone, object, ecosystem):
-    """find objects in a specified zone"""
     contacts = {"target_prey": [], "food": [], "partners": []}
     for coord in zone:
         find_object = ecosystem.get_object_by_coord(coord[0], coord[1])
@@ -33,8 +29,8 @@ def seek(zone, object, ecosystem):
     return contacts
 
 
+# Return a list of organic waste inside the root zone
 def organic_waste_in_root_zone(zone, ecosystem):
-    """return a list of organic waste inside the root zone"""
     waste = []
     for coord in zone:
         find_object = ecosystem.get_object_by_coord(coord[0], coord[1])
@@ -43,8 +39,8 @@ def organic_waste_in_root_zone(zone, ecosystem):
     return waste
 
 
+# Check if coordinates are empty""
 def is_empty(grid, list):
-    """check if coordinates are empty"""
     empty = []
     for coord in list:
         if grid[coord[1]][coord[0]] == 0:
@@ -52,8 +48,8 @@ def is_empty(grid, list):
     return empty
 
 
+# Find a random move
 def random_move(ecosystem, grid, object):
-    """find a random move"""
     possible = []
     for i in range(object.max_move):
         for j in range(object.max_move):
@@ -65,8 +61,8 @@ def random_move(ecosystem, grid, object):
     return random.choice(filtered_possible)
 
 
+# find a valid move to a target
 def move(ecosystem, grid, object, list):
-    """find a valid move to a target"""
     target = random.choice(list)
     find_target = ecosystem.get_object_by_coord(target[0], target[1])
     target_contact_zone = find_target.get_contact_zone([ecosystem.size_x, ecosystem.size_y])
@@ -91,8 +87,8 @@ def move(ecosystem, grid, object, list):
     return target_coord
 
 
+# Process each object in the ecosystem: feed, reproduce, move, ...
 def process_ecosystem(object, ecosystem, grid):
-    """process each object in the ecosystem: feed, reproduce, move, ..."""
     if isinstance(object, Animal):
         # check if the animal is too old
         if object.age > object.max_age:
