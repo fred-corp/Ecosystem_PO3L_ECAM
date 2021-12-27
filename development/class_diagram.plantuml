@@ -12,6 +12,7 @@ class "Ecosystem" as classes.ecosystem.Ecosystem {
 }
 
 class "Life" as classes.life.Life {
+  UUID : string
   age : int
   max_age : int
   energy : int
@@ -26,6 +27,7 @@ class "Life" as classes.life.Life {
 }
 
 class "Food" as classes.food.Food {
+  UUID : string
   energy: int
   x: int
   y: int
@@ -34,14 +36,22 @@ class "Food" as classes.food.Food {
 
 abstract class "Animal" as classes.animal.Animal {
   contact_radius : int
-  gender : String
+  gender : int
+  gets_pregnant : int
   vision_radius : int
   max_move : int
-  is_carnivore : boolean
   {abstract} eat_meat()
   gestated(min_age)
   get_contact_zone(size)
   get_vision_zone(size)
+}
+
+class "Carnivore" as classes.carnivore.Carnivore {
+  eat_meat() {return True}
+}
+
+class "Herbivore" as classes.herbivore.Herbivore {
+  eat_meat() {return False}
 }
 
 class "Meat" as classes.meat.Meat {
@@ -65,4 +75,6 @@ classes.life.Life <|-- classes.animal.Animal
 classes.life.Life <|-- classes.plant.Plant
 classes.food.Food <|-- classes.meat.Meat
 classes.food.Food <|-- classes.organic_waste.OrganicWaste
+classes.animal.Animal <|-- classes.carnivore.Carnivore
+classes.animal.Animal <|-- classes.herbivore.Herbivore
 @enduml
