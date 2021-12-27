@@ -24,7 +24,7 @@ function testBackend () {
 }
 */
 
-let ecoSymDict
+let ecoSymDict = {}
 
 // Load example ecosystem
 function loadExample () {
