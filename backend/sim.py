@@ -30,15 +30,17 @@ clock = pygame.time.Clock()
 
 
 # functions
+
+# Create a new ecosystem
 def create_ecosystem(x, y):
-    """create a new ecosystem"""
     ecosystem = Ecosystem(x, y)
     generate(ecosystem)
     return ecosystem
 
 
+# Create a grid to display in pygame
 def create_grid(x, y):
-    """create a grid to display in pygame"""
+
     grid = []
     for row in range(y):
         grid.append([])
@@ -47,8 +49,8 @@ def create_grid(x, y):
     return grid
 
 
+# Add objects to grid
 def update_grid(ecosystem, grid):
-    """add objects to grid"""
     for object in ecosystem.objects:
         if isinstance(object, Wolf):
             grid[object.y][object.x] = 1
@@ -63,16 +65,17 @@ def update_grid(ecosystem, grid):
     return grid
 
 
+# Create pygame screen
 def create_screen(ecosystem):
-    """create pygame screen"""
     WINDOW_SIZE = [ecosystem.size_x*WIDTH, ecosystem.size_y*HEIGHT]
     screen = pygame.display.set_mode(WINDOW_SIZE)
     screen.fill(GREEN)
     return screen
 
 
+
+# Main application
 def main():
-    """main application"""
     ecosystem = create_ecosystem(100, 50)
     screen = create_screen(ecosystem)
 
