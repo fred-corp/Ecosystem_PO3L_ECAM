@@ -24,8 +24,8 @@ class Life:
     def modify_energy(self, amount):
         self.energy_points += amount
 
-    def modify_life_points(self, amount):
-        self.life_points += amount
+    def modify_health_points(self, amount):
+        self.health_points += amount
 
     def make_move(self, coord):
         self.x = coord[0]

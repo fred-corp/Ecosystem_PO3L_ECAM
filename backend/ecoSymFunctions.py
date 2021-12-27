@@ -73,6 +73,7 @@ def addPopulation (ecoSymDict, ecosystem) :
                     item["lifeform"],
                     item["posX"],
                     item["posY"],
+                    lifeformDefault["FP"],
                     item["age"],
                     ecoSymDict["meatCompostAfter"],
             ))
@@ -86,7 +87,6 @@ def addPopulation (ecoSymDict, ecosystem) :
                 ))
         else :
             print("{} Not implemented yet !".format(ecoSymDict["types"][lifeformDefault["type"]]))
-    print(ecosystem)
 
 def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
     newEcoSymDist = oldEcoSymDict
@@ -99,15 +99,16 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
         itemDict["posY"] = item.y
         if isinstance(item, Life) or isinstance(item, Meat) :
             itemDict["age"] = item.age
-            itemDict["HP"] = item.health_points
             itemDict["FP"] = item.energy_points
-            if isinstance(item, Animal) :
-                itemDict["gender"] = item.gender
-                # TODO
-                # * store if pregnant
-                # * store cooldown
-                itemDict["isPregnant"] = 0
-                itemDict["gestationCooldown"] = 0
+            if isinstance(item, Life): 
+                itemDict["HP"] = item.health_points
+                if isinstance(item, Animal) :
+                    itemDict["gender"] = item.gender
+                    # TODO
+                    # * store if pregnant
+                    # * store cooldown
+                    itemDict["isPregnant"] = 0
+                    itemDict["gestationCooldown"] = 0
         newRound.append(itemDict)
 
     newEcoSymDist["rounds"].append(newRound)
@@ -127,7 +128,7 @@ def process(ecoSymDict, object, ecosystem, grid):
     if isinstance(object, Animal):
         # check if the animal is too old
         if object.age > object.lifespan:
-            ecosystem.add_object(Meat(object.UUID, "meat", object.x, object.y, ecoSymDict["meatCompostAfter"]))
+            ecosystem.add_object(Meat(object.UUID, "meat", object.x, object.y, 10, 0, ecoSymDict["meatCompostAfter"]))
             ecosystem.remove_object(object)
             del object
             return ecosystem
@@ -181,8 +182,24 @@ def process(ecoSymDict, object, ecosystem, grid):
             find_partner = ecosystem.get_object_by_coord(partner[0], partner[1])
             object.modify_energy(-2)
             find_partner.modify_energy(-2)
-            birth = random.choice(is_empty(grid, contact_zone))
-            ecosystem.add_object(type(object)(birth[0], birth[1], 0, random.choice(["male", "female"])))
+            birthZone = random.choice(is_empty(grid, contact_zone))
+            ecosystem.add_object(type(object)(
+                    str(uuid.uuid4()), 
+                    object.lifeform, 
+                    birthZone[0], 
+                    birthZone[1], 
+                    0,
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["lifespan"], 
+                    20, 
+                    ecoSymDict["defaultHP"], 
+                    20, 
+                    ecoSymDict["defaultFP"], 
+                    random.choice([0, 1]), 
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["getsPregnant"], 
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["adultAt"], 
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["visionRadius"], 
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["contactRadius"], 
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["maxMove"]))#(uuid.uuid4(), object.lifeform, birth[0], birth[1], 0, random.choice(["male", "female"])))
 
         # drop organic waste
         if is_empty(grid, contact_zone):
@@ -215,7 +232,7 @@ def process(ecoSymDict, object, ecosystem, grid):
     elif isinstance(object, Plant):
         # check if the plant is too old
         if object.age > object.lifespan:
-            ecosystem.add_object(OrganicWaste(object.UUID, "organicWaste", object.x, object.y))
+            ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
             ecosystem.remove_object(object)
             del object
             return ecosystem
@@ -225,7 +242,7 @@ def process(ecoSymDict, object, ecosystem, grid):
                 object.modify_health_points(-1)
                 object.modify_energy(ecoSymDict["HPFPEquivalence"])
             else:
-                ecosystem.add_object(OrganicWaste(object.UUID, "organicWaste", object.x, object.y))
+                ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
                 ecosystem.remove_object(object)
                 del object
                 return ecosystem
@@ -256,8 +273,8 @@ def process(ecoSymDict, object, ecosystem, grid):
 
     elif type(object) == Meat:
         # check if meat is rot
-        if object.age >= object.meat_rot_age:
-            ecosystem.add_object(OrganicWaste(object.UUID, "organicWaste", object.x, object.y))
+        if object.age >= object.rotsAt:
+            ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
             ecosystem.remove_object(object)
             del object
             return ecosystem
@@ -267,7 +284,7 @@ def process(ecoSymDict, object, ecosystem, grid):
                 object.modify_health_points(-1)
                 object.modify_energy(ecoSymDict["HPFPEquivalence"])
             else:
-                ecosystem.add_object(OrganicWaste(object.UUID, "organicWaste", object.x, object.y))
+                ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
                 ecosystem.remove_object(object)
                 del object
                 return ecosystem
