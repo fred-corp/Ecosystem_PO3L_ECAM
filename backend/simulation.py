@@ -1,4 +1,3 @@
-import params
 import random
 
 from classes.animal import Animal

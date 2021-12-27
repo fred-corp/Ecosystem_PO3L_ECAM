@@ -1,9 +1,4 @@
 import random
-import params
-
-from classes.wolf import Wolf
-from classes.carrot import Carrot
-from classes.sheep import Sheep
 
 # generate an initial population
 def generate(ecosystem):
