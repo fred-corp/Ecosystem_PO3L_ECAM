@@ -33,7 +33,6 @@ function displayGrid (_data) {
       const cell = document.createElement('div')
       for (let i = 0; i < population.length; i++) {
         if (population[i].posX === x && population[i].posY === y) {
-
           cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
           cell.onclick = (function (entity) {
             return function () {
@@ -60,10 +59,9 @@ function displayGrid (_data) {
 
 // Simulate the next step of the ecosystem
 function simulate () {
-  if(!Object.keys(ecoSymDict).length){
+  if (!Object.keys(ecoSymDict).length) {
     loadView('Load an example first !')
-  }
-  else{
+  } else {
     const payload = ecoSymDict
     const data = new FormData()
     data.append('json', JSON.stringify(payload))
@@ -73,9 +71,10 @@ function simulate () {
         body: data
       })
       .then(function (res) { return res.json() })
-      .then(function (data) { 
+      .then(function (data) {
         ecoSymDict = data
         loadView('')
-        displayGrid(ecoSymDict) })
+        displayGrid(ecoSymDict)
+      })
   }
 }
