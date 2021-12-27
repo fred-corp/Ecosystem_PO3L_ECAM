@@ -31,6 +31,24 @@ def create_grid(x, y):
     return grid
 
 
+<<<<<<< HEAD
+=======
+# Add objects to grid
+def update_grid(ecosystem, grid):
+    for object in ecosystem.objects:
+        if isinstance(object, Wolf):
+            grid[object.y][object.x] = 1
+        elif isinstance(object, Carrot):
+            grid[object.y][object.x] = 2
+        elif type(object) == Meat:
+            grid[object.y][object.x] = 3
+        elif type(object) == OrganicWaste:
+            grid[object.y][object.x] = 4
+        elif isinstance(object, Sheep):
+            grid[object.y][object.x] = 5
+    return grid
+
+>>>>>>> e1e2086abf2e46de48215749ae6b3a6d0d8163c1
 
 # Main application
 def main():
