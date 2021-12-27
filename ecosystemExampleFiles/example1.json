@@ -17,11 +17,13 @@
 	"lifeFormDefaults" : {
 		"meat" : {
 			"type" : 3,
-			"color" : "#aa1111"
+			"color" : "#aa1111",
+			"FP" : 10
 		},
 		"organicwaste" : {
 			"type" : 4,
-			"color" : "#f0f0f0"
+			"color" : "#f0f0f0",
+			"FP" : 5
 		},
 		"human" : {
 			"type" : 0,
