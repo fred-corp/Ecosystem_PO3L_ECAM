@@ -15,7 +15,7 @@
 * ⬜️ implement ```starveAfter``` parameter
 * ⬜️ implement ```FP``` parameter for food
 * ⬜️ verify wether there is already something around before dropping item (add some kind of hierarchy)
-* ⬜️ add more randomness to organic wste drops
+* ⬜️ add more randomness to organic waste drops
 * ⬜️ debug and test *a lot*
 * ⬜️ make sequence diagram
 * ⬜️ verify class diagram
