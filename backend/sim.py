@@ -1,9 +1,8 @@
 import json
-import time
 import sys
+import time
 
-from simulation import process_ecosystem
-from ecoSymFunctions import addPopulation
+from ecoSymFunctions import *
 
 from classes.animal import Animal
 from classes.organic_waste import OrganicWaste
@@ -35,12 +34,15 @@ def main():
 
 def simulateNextStep(ecoSymDict) :
     ecosystem = createEcosystem(ecoSymDict["fieldSize"][0], ecoSymDict["fieldSize"][1])
+    simGrid = creatGrid(ecosystem.size_x, ecosystem.size_y)
     addPopulation(ecoSymDict, ecosystem)
-    newEcoSymDict = {}
+    for i in range(len(ecosystem.objects)) :
+        ecosystem = process(ecoSymDict, ecosystem.objects[i], ecosystem, simGrid)
+    newEcoSymDict = exportEcosystemToDict(ecoSymDict, ecosystem)
     return newEcoSymDict
 
 
 if __name__ == "__main__":
     with open(sys.argv[1]) as json_file:
         data = json.load(json_file)
-        simulateNextStep(data)
+        print(simulateNextStep(data))
