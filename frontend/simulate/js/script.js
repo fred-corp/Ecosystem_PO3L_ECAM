@@ -24,12 +24,15 @@ function testBackend () {
 }
 */
 
+let ecoSymDict
+
 // Load example ecosystem
 function loadExample () {
   window.fetch('/API/load')
     .then(function (res) { return res.json() })
     .then(function (data) {
-      displayGrid(data)
+      ecoSymDict = data
+      displayGrid(ecoSymDict)
     })
 }
 
@@ -46,20 +49,21 @@ function displayGrid (_data) {
     for (let x = 0; x < rows; x++) {
       const cell = document.createElement('div')
       for (let i = 0; i < population.length; i++) {
-        if (population[i][8] === x && population[i][9] === y) {
-          cell.style.cssText = 'background-color: ' + _data.lifeDefaults[population[i][1]].color + ';'
+        if (population[i].posX === x && population[i].posY === y) {
+
+          cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
           cell.onclick = (function (entity) {
             return function () {
               let text = ''
-              text = 'UUID : ' + entity[0] + '\n'
-              text += 'Lifeform : ' + entity[1] + '\n'
-              text += 'Gender : ' + _data.genders[entity[2]] + '\n'
-              if (entity[2] === _data.lifeDefaults[entity[1]].getsPregnant) {
+              text = 'UUID : ' + entity.UUID + '\n'
+              text += 'Lifeform : ' + entity.lifeform + '\n'
+              text += 'Gender : ' + _data.genders[entity.gender] + '\n'
+              if (entity[2] === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
                 text += 'Pregnant : ' + entity[3] + '\n'
               }
-              text += 'Age : ' + entity[5] + '\n'
-              text += 'HP : ' + entity[6] + '\n'
-              text += 'FP : ' + entity[7]
+              text += 'Age : ' + entity.age + '\n'
+              text += 'HP : ' + entity.age + '\n'
+              text += 'FP : ' + entity.age
               window.alert(text)
             }
           })(population[i])
@@ -73,7 +77,24 @@ function displayGrid (_data) {
 
 // Simulate the next step of the ecosystem
 function simulate () {
-  loadView('Simulate is not implemented yet..')
+  if(!Object.keys(ecoSymDict).length){
+    loadView('Load an example first !')
+  }
+  else{
+    const payload = ecoSymDict
+    const data = new FormData()
+    data.append('json', JSON.stringify(payload))
+    fetch('/API/simulate',
+      {
+        method: 'POST',
+        body: data
+      })
+      .then(function (res) { return res.json() })
+      .then(function (data) { 
+        ecoSymDict = data
+        console.log(ecoSymDict)
+        displayGrid(ecoSymDict) })
+  }
 }
 
 // Test function to see how a JSON object can get sent to and from a backend

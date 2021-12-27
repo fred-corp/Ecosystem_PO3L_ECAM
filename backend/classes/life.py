@@ -1,48 +1,38 @@
-from classes.ecosystem import Ecosystem
-
-
-class Life(Ecosystem):
+class Life:
     def __init__(
         self,
-        uid,
-        specie,
-        life_points,
-        energy_reserve,
+        UUID,
+        lifeform,
+        x,
+        y,
         age,
-        gender,
-        food_type,
-        contact_zone,
-        pos_x,
-        pos_y,
-        gestated,
+        health_points,
+        energy_points,
+        max_energy_points,
+        lifespan,
     ):
-        self.uid = uid
-        self.specie = specie
-        self.life_points = life_points
-        self.energy_reserve = energy_reserve
+        self.UUID = UUID
+        self.lifeform = lifeform
+        self.x = x
+        self.y = y
+        self.health_points = health_points
+        self.energy_points = energy_points
+        self.max_energy_points = max_energy_points
         self.age = age
-        self.gender = gender
-        self.food_type = food_type
-        self.contact_zone = contact_zone
-        self.pos_x = pos_x
-        self.pos_y = pos_y
-        self.gestated = gestated
+        self.lifespan = lifespan
 
     def modify_energy(self, amount):
-        self.energy_reserve += amount
+        self.energy_points += amount
 
-    def modify_life_points(self, amount):
-        self.life_points += amount
+    def modify_health_points(self, amount):
+        self.health_points += amount
 
-    def get_contact_zone(self, rows, cols):
-        zone = []
-        for i in range(self.contact_zone):
-            for j in range(self.contact_zone):
-                if self.pos_x+i in range(rows) and self.pos_y+j in range(cols):
-                    zone.append([self.pos_x+i, self.pos_y+j])
-                if self.pos_x-i in range(rows) and self.pos_y-j in range(cols):
-                    zone.append([self.pos_x-i, self.pos_y-j])
-        return zone
+    def make_move(self, coord):
+        self.x = coord[0]
+        self.y = coord[1]
+
+    def increase_age(self):
+        self.age += 1
 
     def __del__(self):
         pass

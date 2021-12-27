@@ -7,73 +7,93 @@
 	"HPFPEquivalence" : 20,
 	"meatCompostAfter" : 10,
 	"foodRestoreAmount" : 2,
-	"visionRadius" : 12,
-	"contactRadius" : 3,
-	"rootRadius" : 10,
-	"seedRadius" : 8,
+	"defaultVisionRadius" : 12,
+	"defaultContactRadius" : 3,
+	"defaultRootRadius" : 10,
+	"defaultSeedRadius" : 8,
 	"startRandom" : false,
 	"genders" : ["female", "male", "hermaphrodite"],
-	"lifeDefaults" : {
+	"types" : ["carnivore", "herbivore", "plant", "meat", "organicwaste"],
+	"lifeFormDefaults" : {
+		"meat" : {
+			"type" : 3,
+			"color" : "#aa1111",
+			"FP" : 10
+		},
+		"organicwaste" : {
+			"type" : 4,
+			"color" : "#f0f0f0",
+			"FP" : 5
+		},
 		"human" : {
-			"species" : "animal",
+			"type" : 0,
 			"color" : "#c6a14a",
-			"diet" : 2,
 			"lifespan" : 200,
 			"reproduceCooldown" : 8,
 			"getsPregnant" : 0,
-			"gestation" : 10,
-			"hierarchy" : 5,
-			"foodDropAmount" : 4
+			"adultAt" : 10,
+			"contactRadius" : 3,
+			"visionRadius" : 12,
+			"maxMove" : 2
 		},
 		"platypuss" : {
-			"species" : "animal",
+			"type" : 1,
 			"color" : "#e25f47",
-			"diet" : 1,
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
 			"getsPregnant" : 0,
-			"gestation" : 4,
-			"hierarchy" : 2,
-			"foodDropAmount" : 1
+			"adultAt" : 4,
+			"contactRadius" : 3,
+			"visionRadius" : 12,
+			"maxMove" : 1
 		},
 		"cow" : {
-			"species" : "animal",
+			"type" : 1,
 			"color" : "#b2d871",
-			"diet" : 0,
 			"lifespan" : 70,
 			"reproduceCooldown" : 5,
 			"getsPregnant" : 0,
-			"gestation" : 7,
-			"hierarchy" : 0,
-			"foodDropAmount" : 1
+			"adultAt" : 7,
+			"contactRadius" : 3,
+			"visionRadius" : 12,
+			"maxMove" : 3
 		},
 		"seahorse" : {
-			"species" : "animal",
+			"type" : 0,
 			"color" : "#78b8df",
-			"diet" : 0,
 			"lifespan" : 10,
 			"reproduceCooldown" : 1,
 			"getsPregnant" : 1,
-			"gestation" : 1,
-			"hierarchy" : 0,
-			"foodDropAmount" : 1
+			"adultAt" : 1,
+			"contactRadius" : 3,
+			"visionRadius" : 12,
+			"maxMove" : 1
+		},
+		"oak" : {
+			"type" : 2,
+			"color" : "#00FF00",
+			"lifespan" : 500,
+			"adultAt" : 60,
+			"rootRadius" : 20,
+			"seedRadius" : 80
 		}
 	},
 	"rounds" : [
 		[
-		["3f6a59f4-b970-4967-996a-18a2716abf11", "human", 0, false, 0, 0, 20, 20, 0, 0],
-		["244208f5-9a10-403b-bec2-7b73de3c0a68", "human", 1, false, 0, 0, 20, 20, 10, 7],
-		["925852b6-447c-4d62-a9bd-f575d9df279f", "human", 1, false, 0, 0, 20, 20, 25, 44],
-		["1056303f-551e-4e89-b04e-f4cfe61a1144", "human", 0, false, 0, 0, 20, 20, 39, 12],
-		["cfaba5ae-64e0-4bad-93b4-69855c2a4024", "platypuss", 0, false, 0, 0, 20, 20, 48, 29],
-		["43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "platypuss", 1, false, 0, 0, 20, 20, 22, 33],
-		["5dbf8f4d-4d87-4eca-9a8e-e21abf52606c", "cow", 1, false, 0, 0, 20, 20, 17, 12],
-		["920a3311-ae73-4bd6-a594-50b5740d68ed", "cow", 0, false, 0, 0, 20, 20, 1, 7],
-		["351e7c9c-da73-42b7-bbaf-357e094663c5", "cow", 1, false, 0, 0, 20, 20, 14, 27],
-		["f30363fe-abce-496b-845f-738dd0fe4a96", "seahorse", 1, false, 0, 0, 20, 20, 18, 22],
-		["6d83e270-c222-45f3-a139-ddf23ae721ee", "seahorse", 0, false, 0, 0, 20, 20, 33, 42],
-		["e616355f-390e-4e3a-a864-b54e27f0851e", "seahorse", 1, false, 0, 0, 20, 20, 44, 6],
-		["6574a724-7d7a-422c-a84d-8711b20ca55c", "seahorse", 0, false, 0, 0, 20, 20, 39, 26]
+			{"UUID" : "3f6a59f4-b970-4967-996a-18a2716abf11", "lifeform" : "human", "posX" : 0, "posY" : 0, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "244208f5-9a10-403b-bec2-7b73de3c0a68", "lifeform" : "human", "posX" : 10, "posY" : 7, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "925852b6-447c-4d62-a9bd-f575d9df279f", "lifeform" : "human", "posX" : 25, "posY" : 44, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "1056303f-551e-4e89-b04e-f4cfe61a1144", "lifeform" : "human", "posX" : 39, "posY" : 12, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "cfaba5ae-64e0-4bad-93b4-69855c2a4024", "lifeform" : "platypuss", "posX" : 48, "posY" : 29, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "43f24c3f-a74d-4c73-bb2d-75c4321a0ddf", "lifeform" : "platypuss", "posX" : 22, "posY" : 33, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "5dbf8f4d-4d87-4eca-9a8e-e21abf52606c", "lifeform" : "cow", "posX" : 17, "posY" : 12, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "920a3311-ae73-4bd6-a594-50b5740d68ed", "lifeform" : "cow", "posX" : 1, "posY" : 7, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "351e7c9c-da73-42b7-bbaf-357e094663c5", "lifeform" : "cow", "posX" : 14, "posY" : 27, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "f30363fe-abce-496b-845f-738dd0fe4a96", "lifeform" : "seahorse", "posX" : 18, "posY" : 22, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "6d83e270-c222-45f3-a139-ddf23ae721ee", "lifeform" : "seahorse", "posX" : 33, "posY" : 42, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "e616355f-390e-4e3a-a864-b54e27f0851e", "lifeform" : "seahorse", "posX" : 44, "posY" : 6, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "6574a724-7d7a-422c-a84d-8711b20ca55c", "lifeform" : "seahorse", "posX" : 39, "posY" : 26, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
+			{"UUID" : "0b41ed86-9be4-4899-814c-8d1a4bcea151", "lifeform" : "oak", "posX" : 23, "posY" : 29, "age" : 0, "HP" : 20, "FP" : 20}
 		]
 	]
 }

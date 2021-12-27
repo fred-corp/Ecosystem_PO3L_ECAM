@@ -1,7 +1,20 @@
-from classes.energy import Energy
+from classes.food import Food
 
 
-class Meat(Energy):
-    def __init__(self, uid, amount, age, pos_x, pos_y):
-        super().__init__(uid, amount, pos_x, pos_y)
+class Meat(Food):
+    def __init__(
+        self,
+        UUID,
+        lifeform,
+        x,
+        y,
+        energy_points,
+        age,
+        rotsAt
+    ):
+        super().__init__(UUID, lifeform, x, y, energy_points)
         self.age = age
+        self.rotsAt = rotsAt
+
+    def increase_age(self):
+        self.age += 1
