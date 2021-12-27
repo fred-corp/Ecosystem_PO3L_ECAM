@@ -1,17 +1,23 @@
 class Life:
     def __init__(
         self,
+        UUID,
         x,
         y,
         life_points,
         energy,
+        max_energy,
         age,
+        max_age,
     ):
+        self.UUID = UUID
         self.x = x
         self.y = y
         self.life_points = life_points
         self.energy = energy
+        self.max_energy = max_energy
         self.age = age
+        self.max_age = max_age
 
     def modify_energy(self, amount):
         self.energy += amount

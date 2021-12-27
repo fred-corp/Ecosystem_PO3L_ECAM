@@ -5,25 +5,35 @@ from classes.life import Life
 class Animal(Life, ABC):
     def __init__(
         self,
+        UUID,
         x,
         y,
         life_points,
         energy,
+        max_energy,
         age,
+        max_age,
         gender,
+        gets_pregnant,
         vision_radius,
         contact_radius,
+        max_move
     ):
         super().__init__(
+            UUID,
             x,
             y,
             life_points,
             energy,
+            max_energy,
             age,
+            max_age,
         )
         self.gender = gender
+        self.gets_pregnant = gets_pregnant
         self.vision_radius = vision_radius
         self.contact_radius = contact_radius
+        self.max_move = max_move
 
     def get_contact_zone(self, size):
         zone = []
@@ -45,6 +55,9 @@ class Animal(Life, ABC):
                     zone.append([self.x-i, self.y-j])
         return zone
 
+    # TODO :
+    # • Verify which gender gets pregnant
+    # • Add cooldown to reproduction
     def gestated(self, min_age):
         if self.age > min_age:
             return True
