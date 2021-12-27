@@ -5,6 +5,7 @@ from classes.carnivore import Carnivore
 from classes.herbivore import Herbivore
 from classes.animal import Animal
 from classes.plant import Plant
+from classes.life import Life
 from classes.meat import Meat
 from classes.organic_waste import OrganicWaste
 
@@ -67,9 +68,22 @@ def addPopulation (ecoSymDict, ecosystem) :
                     lifeformDefault["seedRadius"],
             ))
         elif lifeformDefault["type"] == 3 :
+            ecosystem.add_object(Meat(
+                    item["UUID"],
+                    item["lifeform"],
+                    item["posX"],
+                    item["posY"],
+                    item["age"],
+                    ecoSymDict["meatCompostAfter"],
+            ))
             pass
         elif lifeformDefault["type"] == 4 :
-            pass
+            ecosystem.add_object(OrganicWaste(
+                    item["UUID"],
+                    item["lifeform"],
+                    item["posX"],
+                    item["posY"],
+                ))
         else :
             print("{} Not implemented yet !".format(ecoSymDict["types"][lifeformDefault["type"]]))
     print(ecosystem)
@@ -82,8 +96,8 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
         itemDict["UUID"] = item.UUID
         itemDict["lifeform"] = item.lifeform
         itemDict["posX"] = item.x
-        itemDict["poxY"] = item.y
-        if isinstance(item, Animal) or isinstance(item, Meat) :
+        itemDict["posY"] = item.y
+        if isinstance(item, Life) or isinstance(item, Meat) :
             itemDict["age"] = item.age
             itemDict["HP"] = item.health_points
             itemDict["FP"] = item.energy_points
@@ -173,7 +187,7 @@ def process(ecoSymDict, object, ecosystem, grid):
         # drop organic waste
         if is_empty(grid, contact_zone):
             drop = random.choice(is_empty(grid, contact_zone))
-            ecosystem.add_object(OrganicWaste(str(uuid.uuid4()), 4, drop[0], drop[1]))
+            ecosystem.add_object(OrganicWaste(str(uuid.uuid4()), "organicwaste", drop[0], drop[1]))
         # move
         seeked = seek(vision_zone, object, ecosystem)
         if seeked["partners"]:
