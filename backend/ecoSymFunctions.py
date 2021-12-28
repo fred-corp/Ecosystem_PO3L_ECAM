@@ -27,6 +27,7 @@ def addPopulation (ecoSymDict, ecosystem) :
                     ecoSymDict["defaultFP"],
                     item["gender"],
                     item["isPregnant"],
+                    item["gestationCooldown"],
                     lifeformDefault["adultAt"],
                     lifeformDefault["visionRadius"],
                     lifeformDefault["contactRadius"],
@@ -46,6 +47,7 @@ def addPopulation (ecoSymDict, ecosystem) :
                     ecoSymDict["defaultFP"],
                     item["gender"],
                     item["isPregnant"],
+                    item["gestationCooldown"],
                     lifeformDefault["adultAt"],
                     lifeformDefault["visionRadius"],
                     lifeformDefault["contactRadius"],
@@ -108,7 +110,7 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
                     # * store if pregnant
                     # * store cooldown
                     itemDict["isPregnant"] = 0
-                    itemDict["gestationCooldown"] = 0
+                    itemDict["gestationCooldown"] = item.gestationCooldown
         newRound.append(itemDict)
 
     if (len(newEcoSymDist["rounds"]) == 1) or (oldEcoSymDict["keepHistory"]):
