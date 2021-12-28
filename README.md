@@ -8,22 +8,13 @@
 
 ## TODO
 
-* ⬜️ Verify which gender gets pregnant
-* ⬜️ Add cooldown to reproduction
-* ⬜️ store if pregnant
-* ⬜️ store cooldown
-* ⬜️ implement ```starveAfter``` parameter
-* ⬜️ implement ```FP``` parameter for food
-* ⬜️ verify wether there is already something around before dropping item (add some kind of hierarchy)
-* ⬜️ add more randomness to organic waste drops
-* ⬜️ debug and test *a lot*
-* ⬜️ make sequence diagram
-* ⬜️ verify class diagram
-* ⬜️ begin to write report
+* ⬜️ work on issues
 
 ## Sources
 
-* TODO : Add sources
+* Project requirements : ["PO3L - Projet" on Quentin Lurkin's website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html)
+* [W3schools](https://www.w3schools.com)
+* [StackOverflow](https://stackoverflow.com)
 
 Made with ❤️, lots of ☕️, and lack of 🛌  
 Published under CreativeCommons BY-NC-SA 4.0
