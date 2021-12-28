@@ -190,7 +190,7 @@ def process(ecoSymDict, object, ecosystem, grid):
             find_partner = ecosystem.get_object_by_coord(partner[0], partner[1])
             object.modify_energy(-2)
             find_partner.modify_energy(-2)
-            whichGetsPregnant = object if (object.gender == ecoSymDict["lifeFormDefaults"][object.lifeform]["getspregnant"]) else find_partner
+            whichGetsPregnant = object if (object.gender == ecoSymDict["lifeFormDefaults"][object.lifeform]["getsPregnant"]) else find_partner
             whichGetsPregnant.isPregnant = 1
             whichGetsPregnant.gestationCooldown = ecoSymDict["lifeFormDefaults"][whichGetsPregnant.lifeform]["reproduceCooldown"]
             
