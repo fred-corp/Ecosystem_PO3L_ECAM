@@ -138,7 +138,7 @@ def process(ecoSymDict, object, ecosystem, grid):
             del object
             return ecosystem
         # check if the animal still has energy
-        if object.energy_points == 0:
+        if object.energy_points <= 0:
             if object.health_points > 0:
                 object.modify_health_points(-1)
                 object.modify_energy(ecoSymDict["HPFPEquivalence"])
