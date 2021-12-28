@@ -330,7 +330,7 @@ def seek(zone, object, ecosystem):
     for coord in zone:
         find_object = ecosystem.get_object_by_coord(coord[0], coord[1])
         if object.age >= object.adultAt:
-            if (type(object) == type(find_object)) and (object.lifeform == find_object.lifeform) and (find_object.age >= object.adultAt) and (object.gender != find_object.gender) :
+            if (type(object) == type(find_object)) and (object.lifeform == find_object.lifeform) and (find_object.age >= object.adultAt) and (object.gender != find_object.gender) and (object.isPregnant == 0):
                 contacts["partners"].append(coord)
         if object.eat_meat():
             if isinstance(find_object, Animal):
