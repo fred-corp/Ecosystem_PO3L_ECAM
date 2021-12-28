@@ -38,7 +38,7 @@ TODO :
   "type": str s,               # type : references to "type" array
   "color" : str C,             # HEX color code for EcoSym Viewer
   "lifespan" : int x,          # Lifespan of lifeform (only for animals & plants)
-  "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating (only for animals)
+  "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating and after which it gives birth when pregnant (only for animals) 
   "getsPregnant" : int x,      # Which gender gets pregnant (only for animals)
   "gestation" : int x,         # Number of rounds it takes for a newborn to develop (only for animals)
   "adultAt" : int x,           # age at which an animal or plant ca reproduce or spread seeds
