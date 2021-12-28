@@ -9,21 +9,9 @@ from classes.ecosystem import Ecosystem
 
 # Create a new ecosystem
 def createEcosystem(x, y):
-    ecosystem = Ecosystem(x, y)
+    ecosystem = 
     return ecosystem
 
-# Main application
-def main():
-    ecosystem = create_ecosystem(100, 50)
-    screen = create_screen(ecosystem)
-
-    # main application loop:
-    while True:
-
-        length = len(ecosystem.objects)
-        # Simulation logic:
-        for i in range(length):
-            ecosystem = process_ecosystem(ecosystem.objects[i], ecosystem, grid)
 
 def simulateNextStep(ecoSymDict) :
     ecosystem = createEcosystem(ecoSymDict["fieldSize"][0], ecoSymDict["fieldSize"][1])
