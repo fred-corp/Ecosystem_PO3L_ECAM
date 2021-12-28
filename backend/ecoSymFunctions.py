@@ -150,6 +150,7 @@ def process(ecoSymDict, object, ecosystem, grid):
         vision_zone = object.get_vision_zone([ecosystem.size_x, ecosystem.size_y])
         contacts = seek(contact_zone, object, ecosystem)
         # attack
+        
         if object.eat_meat():
             if contacts["target_prey"]:
                 prey = random.choice(contacts["target_prey"])
@@ -179,6 +180,7 @@ def process(ecoSymDict, object, ecosystem, grid):
                 else:
                     object.modify_energy(food_energy)
                     find_plant.modify_energy(-food_energy)
+        
         # reproduce
         if contacts["partners"]:
             partner = random.choice(contacts["partners"])
@@ -209,6 +211,7 @@ def process(ecoSymDict, object, ecosystem, grid):
             drop = random.choice(is_empty(grid, contact_zone))
             if (random.randint(0, 100) <= ecoSymDict["organicwasteDropChance"]):
                 ecosystem.add_object(OrganicWaste(str(uuid.uuid4()), "organicwaste", drop[0], drop[1]))
+        
         # move
         seeked = seek(vision_zone, object, ecosystem)
         if seeked["partners"]:
@@ -228,8 +231,10 @@ def process(ecoSymDict, object, ecosystem, grid):
             new_pos = random_move(ecosystem, grid, object)
             object.make_move(new_pos)
             object.modify_energy(-2)
+        
         # increase age
         object.increase_age()
+        
         # decrease energy with time
         object.modify_energy(-1)
 
