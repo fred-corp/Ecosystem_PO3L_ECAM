@@ -188,14 +188,15 @@ def process(ecoSymDict, object, ecosystem, grid):
             find_partner = ecosystem.get_object_by_coord(partner[0], partner[1])
             object.modify_energy(-2)
             find_partner.modify_energy(-2)
+            whichGetsPregnant = object if (object.gender == ecoSymDict["lifeFormDefaults"][object.lifeform]["getspregnant"]) else find_partner
             
             # give birth
-            birthZone = random.choice(is_empty(grid, contact_zone))
+            birthCoords = random.choice(is_empty(grid, contact_zone))
             ecosystem.add_object(type(object)(
                     str(uuid.uuid4()), 
                     object.lifeform, 
-                    birthZone[0], 
-                    birthZone[1], 
+                    birthCoords[0], 
+                    birthCoords[1], 
                     0,
                     ecoSymDict["lifeFormDefaults"][object.lifeform]["lifespan"], 
                     20, 
