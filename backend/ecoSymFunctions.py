@@ -181,12 +181,15 @@ def process(ecoSymDict, object, ecosystem, grid):
                     object.modify_energy(food_energy)
                     find_plant.modify_energy(-food_energy)
         
-        # reproduce
+        #reproduction
         if contacts["partners"]:
+            # mate
             partner = random.choice(contacts["partners"])
             find_partner = ecosystem.get_object_by_coord(partner[0], partner[1])
             object.modify_energy(-2)
             find_partner.modify_energy(-2)
+            
+            # give birth
             birthZone = random.choice(is_empty(grid, contact_zone))
             ecosystem.add_object(type(object)(
                     str(uuid.uuid4()), 
@@ -204,8 +207,8 @@ def process(ecoSymDict, object, ecosystem, grid):
                     ecoSymDict["lifeFormDefaults"][object.lifeform]["adultAt"], 
                     ecoSymDict["lifeFormDefaults"][object.lifeform]["visionRadius"], 
                     ecoSymDict["lifeFormDefaults"][object.lifeform]["contactRadius"], 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["maxMove"]))#(uuid.uuid4(), object.lifeform, birth[0], birth[1], 0, random.choice(["male", "female"])))
-
+                    ecoSymDict["lifeFormDefaults"][object.lifeform]["maxMove"]))
+        
         # drop organic waste
         if is_empty(grid, contact_zone):
             drop = random.choice(is_empty(grid, contact_zone))
