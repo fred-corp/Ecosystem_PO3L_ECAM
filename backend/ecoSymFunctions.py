@@ -207,7 +207,7 @@ def process(ecoSymDict, object, ecosystem, grid):
         # drop organic waste
         if is_empty(grid, contact_zone):
             drop = random.choice(is_empty(grid, contact_zone))
-            if (random.randint(0, 10) >= 7):
+            if (random.randint(0, 100) <= ecoSymDict["organicwasteDropChance"]):
                 ecosystem.add_object(OrganicWaste(str(uuid.uuid4()), "organicwaste", drop[0], drop[1]))
         # move
         seeked = seek(vision_zone, object, ecosystem)

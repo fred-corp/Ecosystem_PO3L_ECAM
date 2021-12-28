@@ -5,6 +5,7 @@
 	"defaultFP" : 20,
 	"starveAfter" : 10,
 	"HPFPEquivalence" : 20,
+	"organicwasteDropChance" : 30,
 	"meatCompostAfter" : 10,
 	"foodRestoreAmount" : 2,
 	"defaultVisionRadius" : 12,
