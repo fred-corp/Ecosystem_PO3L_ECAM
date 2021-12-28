@@ -33,26 +33,28 @@ function displayGrid (_data) {
       const cell = document.createElement('div')
       for (let i = 0; i < population.length; i++) {
         if (population[i].posX === x && population[i].posY === y) {
-          cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
-          cell.onclick = (function (entity) {
-            return function () {
-              let text = ''
-              text = 'UUID : ' + entity.UUID + '\n'
-              text += 'Lifeform : ' + entity.lifeform + '\n'
-              text += 'Gender : ' + _data.genders[entity.gender] + '\n'
-              if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
-                text += 'Pregnant : ' + entity.isPregnant + '\n'
-                text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
+          if(cell.innerText === '' || _data.lifeFormDefaults[population[i].lifeform].type < 3) {
+            cell.innerText = ' '
+            cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
+            cell.onclick = (function (entity) {
+              return function () {
+                let text = ''
+                text = 'UUID : ' + entity.UUID + '\n'
+                text += 'Lifeform : ' + entity.lifeform + '\n'
+                text += 'Gender : ' + _data.genders[entity.gender] + '\n'
+                if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
+                  text += 'Pregnant : ' + entity.isPregnant + '\n'
+                  text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
+                }
+                text += 'Age : ' + entity.age + '\n'
+                text += 'HP : ' + entity.age + '\n'
+                text += 'FP : ' + entity.age
+                window.alert(text)
               }
-              text += 'Age : ' + entity.age + '\n'
-              text += 'HP : ' + entity.age + '\n'
-              text += 'FP : ' + entity.age
-              window.alert(text)
-            }
-          })(population[i])
+            })(population[i])
+          }
         }
       }
-      cell.innerText = ''
       container.appendChild(cell).className = 'grid-item'
     }
   }
