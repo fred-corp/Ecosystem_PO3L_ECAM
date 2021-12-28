@@ -191,26 +191,33 @@ def process(ecoSymDict, object, ecosystem, grid):
             object.modify_energy(-2)
             find_partner.modify_energy(-2)
             whichGetsPregnant = object if (object.gender == ecoSymDict["lifeFormDefaults"][object.lifeform]["getspregnant"]) else find_partner
+            whichGetsPregnant.isPregnant = 1
+            whichGetsPregnant.gestationCooldown = ecoSymDict["lifeFormDefaults"][whichGetsPregnant.lifeform]["reproduceCooldown"]
             
-            # give birth
-            birthCoords = random.choice(is_empty(grid, contact_zone))
-            ecosystem.add_object(type(object)(
-                    str(uuid.uuid4()), 
-                    object.lifeform, 
-                    birthCoords[0], 
-                    birthCoords[1], 
-                    0,
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["lifespan"], 
-                    20, 
-                    ecoSymDict["defaultHP"], 
-                    20, 
-                    ecoSymDict["defaultFP"], 
-                    random.choice([0, 1]), 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["getsPregnant"], 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["adultAt"], 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["visionRadius"], 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["contactRadius"], 
-                    ecoSymDict["lifeFormDefaults"][object.lifeform]["maxMove"]))
+        # give birth if pregnant
+        if(object.isPregnant == 1) :
+            if(object.gestationCooldown == 0) :
+                birthCoords = random.choice(is_empty(grid, contact_zone))
+                ecosystem.add_object(type(object)(
+                        str(uuid.uuid4()), 
+                        object.lifeform, 
+                        birthCoords[0], 
+                        birthCoords[1], 
+                        0,
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["lifespan"], 
+                        20, 
+                        ecoSymDict["defaultHP"], 
+                        20, 
+                        ecoSymDict["defaultFP"], 
+                        random.choice([0, 1]), 
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["getsPregnant"], 
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["adultAt"], 
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["visionRadius"], 
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["contactRadius"], 
+                        ecoSymDict["lifeFormDefaults"][object.lifeform]["maxMove"]))
+                object.isPregnant = 0
+            else :
+                object.gestationCooldown -= 1
         
         # drop organic waste
         if is_empty(grid, contact_zone):
