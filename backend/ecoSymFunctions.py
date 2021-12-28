@@ -274,7 +274,20 @@ def process(ecoSymDict, object, ecosystem, grid):
         if object.age >= object.adultAt:
             if is_empty(grid, seed_zone):
                 seed = random.choice(is_empty(grid, seed_zone))
-                ecosystem.add_object(type(object)(seed[0], seed[1], 0))
+                ecosystem.add_object(type(object)(
+                        str(uuid.uuid4()),
+                        object.lifeform,
+                        seed[0],
+                        seed[1],
+                        0,
+                        object.lifespan,
+                        object.health_points,
+                        object.max_health_points,
+                        object.energy_points,
+                        object.max_energy_points,
+                        object.adultAt,
+                        object.root_radius,
+                        object.seed_adius))
         # increase age
         object.increase_age()
         # decrease energy with time
