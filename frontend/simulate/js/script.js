@@ -47,8 +47,8 @@ function displayGrid (_data) {
                   text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
                 }
                 text += 'Age : ' + entity.age + '\n'
-                text += 'HP : ' + entity.age + '\n'
-                text += 'FP : ' + entity.age
+                text += 'HP : ' + entity.HP + '\n'
+                text += 'FP : ' + entity.FP
                 window.alert(text)
               }
             })(population[i])
