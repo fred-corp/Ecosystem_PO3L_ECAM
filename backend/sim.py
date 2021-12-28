@@ -9,7 +9,7 @@ from classes.ecosystem import Ecosystem
 
 # Create a new ecosystem
 def createEcosystem(x, y):
-    ecosystem = 
+    ecosystem = Ecosystem(x, y)
     return ecosystem
 
 
