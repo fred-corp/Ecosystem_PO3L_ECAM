@@ -25,6 +25,7 @@ class Plant(Life):
             y,
             age,
             health_points,
+            max_health_points,
             energy_points,
             max_energy_points,
             lifespan,

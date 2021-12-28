@@ -7,6 +7,7 @@ class Life:
         y,
         age,
         health_points,
+        max_health_points,
         energy_points,
         max_energy_points,
         lifespan,
@@ -16,6 +17,7 @@ class Life:
         self.x = x
         self.y = y
         self.health_points = health_points
+        self.max_health_points = max_health_points
         self.energy_points = energy_points
         self.max_energy_points = max_energy_points
         self.age = age
