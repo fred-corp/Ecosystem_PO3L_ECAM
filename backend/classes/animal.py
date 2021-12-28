@@ -17,6 +17,7 @@ class Animal(Life, ABC):
         max_energy_points,
         gender,
         isPregnant,
+        gestationCooldown,
         adultAt,
         vision_radius,
         contact_radius,
@@ -36,6 +37,7 @@ class Animal(Life, ABC):
         )
         self.gender = gender
         self.isPregnant = isPregnant
+        self.gestationCooldown = gestationCooldown
         self.adultAt = adultAt
         self.vision_radius = vision_radius
         self.contact_radius = contact_radius
