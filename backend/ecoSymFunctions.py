@@ -287,7 +287,7 @@ def process(ecoSymDict, object, ecosystem, grid):
                         object.max_energy_points,
                         object.adultAt,
                         object.root_radius,
-                        object.seed_adius))
+                        object.seed_radius))
         # increase age
         object.increase_age()
         # decrease energy with time
