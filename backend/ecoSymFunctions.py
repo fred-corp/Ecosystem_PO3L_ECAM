@@ -109,7 +109,7 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
                     # TODO
                     # * store if pregnant
                     # * store cooldown
-                    itemDict["isPregnant"] = 0
+                    itemDict["isPregnant"] = item.isPregnant
                     itemDict["gestationCooldown"] = item.gestationCooldown
         newRound.append(itemDict)
 
