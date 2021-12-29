@@ -1,13 +1,35 @@
 @startuml
 
-participant application
+participant webGUI
 participant server
-participant simulation
+participant sim
+participant ecoSymFunctions
 
-application -> server: post JSON
-server -> simulation: send round[-1]
-simulation -> simulation: create ecosystem grid
-simulation -> simulation: add population to ecosystem
-simulation -> simulation: 
+webGUI -> server: post JSON
+server -> sim: send JSON object containing ecosystem data
+sim -> sim: create ecosystem with appropiate size
+sim -> ecoSymFunctions: create grid of entities
+ecoSymFunctions -> sim: grid
+sim -> ecoSymFunctions: add population to ecosystem
+ecoSymFunctions -> sim: loaded ecosystem
+loop for each entity
+	sim -> ecoSymFunctions: ecosystem, entity, grid data
+	alt type of entity
+	else animal
+		ecoSymFunctions -> ecoSymFunctions: 
+	else plant
+		ecoSymFunctions -> ecoSymFunctions: 
+	else meat
+		ecoSymFunctions -> ecoSymFunctions: 
+	else organic waste
+		ecoSymFunctions -> ecoSymFunctions: 
+	end
+	ecoSymFunctions -> sim: updated ecosystem
+end
+sim -> ecoSymFunctions: create JSON object with updated ecosystem
+ecoSymFunctions -> sim: new JSON object
+sim -> server: new JSON object
+server -> webGUI: respond with new JSON object
+webGUI -> webGUI: update visualisation grid
 
 @enduml
