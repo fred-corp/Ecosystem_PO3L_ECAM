@@ -172,7 +172,7 @@ def process(ecoSymDict, object, ecosystem, grid):
                 else:
                     object.modify_energy(food_energy)
                     find_meat.modify_energy(-food_energy)
-            elif object.eat_meat() is False:
+            elif not object.eat_meat():
                 plant = random.choice(contacts["food"])
                 find_plant = ecosystem.get_object_by_coord(plant[0], plant[1])
                 food_energy = find_plant.energy
@@ -264,7 +264,7 @@ def process(ecoSymDict, object, ecosystem, grid):
             del object
             return ecosystem
         # check if the plant still has energy
-        if object.energy_points == 0:
+        if object.energy_points <= 0:
             if object.health_points > 0:
                 object.modify_health_points(-1)
                 object.modify_energy(ecoSymDict["HPFPEquivalence"])
@@ -285,9 +285,16 @@ def process(ecoSymDict, object, ecosystem, grid):
             if food_energy >= hunger:
                 object.modify_energy(hunger)
                 find_organic_waste.modify_energy(-hunger)
+                if(find_organic_waste.energy_points <= 0) :
+                    ecosystem.remove_object(find_organic_waste)
+                    del find_organic_waste
             else:
                 object.modify_energy(food_energy)
                 find_organic_waste.modify_energy(-food_energy)
+                if(find_organic_waste.energy_points <= 0) :
+                    ecosystem.remove_object(find_organic_waste)
+                    del find_organic_waste
+
         # seed
         if object.age >= object.adultAt:
             if is_empty(grid, seed_zone):
