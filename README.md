@@ -15,7 +15,7 @@
 Launch the server:
 
 ```python
-python server.py
+python server.py 0.0.0.0
 ```
 
 Navigate to `localhost:3000`

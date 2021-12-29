@@ -6,5 +6,8 @@ participant simulation
 
 application -> server: post JSON
 server -> simulation: send round[-1]
+simulation -> simulation: create ecosystem grid
+simulation -> simulation: add population to ecosystem
+simulation -> simulation: 
 
 @enduml
