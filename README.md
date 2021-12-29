@@ -11,33 +11,46 @@
 * ⬜️ work on issues
 
 ## Usage
+
 Launch the server:
-```
+
+```python
 python server.py
 ```
+
 Navigate to `localhost:3000`
+
+> You can also still visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
+
 ## UML Diagrams
 
 ### Class diagram
+
 ![class diagram](/development/plantuml.png)
 
 ### Sequence diagram
+
 `todo`
 
 ## SOLID principles justification
-###  Single-responsibility principle:
+
+### Single-responsibility principle
+
 > "There should never be more than one reason for a class to change."
 
 `todo`
-### Open–closed principle:
+
+### Open–closed principle
+
 > "Software entities ... should be open for extension, but closed for modification."
 
 `todo`
-###  Liskov substitution principle:
->  "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
+
+### Liskov substitution principle
+
+> "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
 
 `todo`
-
 
 ## Sources
 
