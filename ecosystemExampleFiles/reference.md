@@ -8,7 +8,6 @@
  "fieldSize" : [int X, int Y],    # Size of the ecosystem
  "defaultHP" : int HP,            # Default healthpoints for (new) lifes
  "defaultFP" : int FP,            # Default foodpoints for (new) lifes
- "starveAfter" : int n,           # Remove 1 FP after n amount of rounds
  "HPFPEquivalence" : int n,       # How much food points you get for one health point
  "organicwasteDropChance" : int c,# Probability for an animal to drop organic waste on each round
  "meatCompostAfter" : int n,      # How much rounds it takes for a piece of meat to compost

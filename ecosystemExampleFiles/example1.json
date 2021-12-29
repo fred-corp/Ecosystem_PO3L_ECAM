@@ -3,7 +3,6 @@
 	"fieldSize" : [50, 50],
 	"defaultHP" : 20,
 	"defaultFP" : 20,
-	"starveAfter" : 10,
 	"HPFPEquivalence" : 20,
 	"organicwasteDropChance" : 20,
 	"meatCompostAfter" : 10,
