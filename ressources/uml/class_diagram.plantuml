@@ -1,5 +1,6 @@
 @startuml classes_classes
 set namespaceSeparator none
+skinparam backgroundcolor transparent
 
 class "Ecosystem" as classes.ecosystem.Ecosystem {
   objects : list
