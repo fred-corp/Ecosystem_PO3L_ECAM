@@ -8,5 +8,6 @@ class OrganicWaste(Food):
         lifeform,
         x,
         y,
+        energy_points
     ):
-        super().__init__(UUID, lifeform, x, y, 5)
+        super().__init__(UUID, lifeform, x, y, energy_points)
