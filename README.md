@@ -10,11 +10,41 @@
 
 * ⬜️ work on issues
 
+## Usage
+Launch the server:
+```
+python server.py
+```
+Navigate to `localhost:3000`
+## UML Diagrams
+
+### Class diagram
+![class diagram](/development/plantuml.png)
+
+### Sequence diagram
+`todo`
+
+## SOLID principles justification
+###  Single-responsibility principle:
+> "There should never be more than one reason for a class to change."
+
+`todo`
+### Open–closed principle:
+> "Software entities ... should be open for extension, but closed for modification."
+
+`todo`
+###  Liskov substitution principle:
+>  "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
+
+`todo`
+
+
 ## Sources
 
 * Project requirements : ["PO3L - Projet" on Quentin Lurkin's website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html)
 * [W3schools](https://www.w3schools.com)
 * [StackOverflow](https://stackoverflow.com)
+* SOLID principles: [Wikipedia](https://en.wikipedia.org/wiki/SOLID)
 
 Made with ❤️, lots of ☕️, and lack of 🛌  
 Published under CreativeCommons BY-NC-SA 4.0
