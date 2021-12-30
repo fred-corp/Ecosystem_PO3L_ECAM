@@ -34,12 +34,14 @@ function displayGrid (_data) {
       for (let i = 0; i < population.length; i++) {
         if (population[i].posX === x && population[i].posY === y) {
           if(cell.innerText === '' || _data.lifeFormDefaults[population[i].lifeform].type < 3) {
-            cell.innerText = ' '
+            console.log(_data.lifeFormDefaults[population[i].lifeform].symbol)
+            cell.innerText = _data.lifeFormDefaults[population[i].lifeform].symbol
             cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
             cell.onclick = (function (entity) {
               return function () {
                 let text = ''
                 text = 'UUID : ' + entity.UUID + '\n'
+                text += 'Symbol : ' + _data.lifeFormDefaults[entity.lifeform].symbol + '\n'
                 text += 'Lifeform : ' + entity.lifeform + '\n'
                 text += 'Gender : ' + _data.genders[entity.gender] + '\n'
                 if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {

@@ -36,6 +36,7 @@ TODO :
  str key : {                   # Race of the lifeform
   "type": str s,               # type : references to "type" array
   "color" : str C,             # HEX color code for EcoSym Viewer
+  "symbol" : str S             # Symbol of entity for EcoSym Viewer (emoji)
   "lifespan" : int x,          # Lifespan of lifeform (only for animals & plants)
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating and after which it gives birth when pregnant (only for animals) 
   "getsPregnant" : int x,      # Which gender gets pregnant (only for animals)
