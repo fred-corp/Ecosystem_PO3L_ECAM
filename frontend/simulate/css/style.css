@@ -25,6 +25,12 @@ body {
   }
 }
 
+@media screen and (max-height: 1600px) {
+  #simulation-grid {
+    font-size: 0.8vh;
+  }
+}
+
 h1 {
   text-align: center;
 }
