@@ -48,12 +48,13 @@ function displayGrid (_data) {
                 text += "Position Y : " + entity.posY + '\n'
                 if (typeof _data.genders[entity.gender] !== 'undefined') {
                   text += 'Gender : ' + _data.genders[entity.gender] + '\n'
-                  if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
+                  if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant && entity.age >= _data.lifeFormDefaults[entity.lifeform].adultAt) {
                     text += 'Pregnant : ' + entity.isPregnant + '\n'
                     text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
                   }
                 }
                 if (typeof entity.age !== 'undefined') { text += 'Age : ' + entity.age + '\n' }
+                if (typeof entity.seedCooldown !== 'undefined' && entity.age >= _data.lifeFormDefaults[entity.lifeform].adultAt) { text += 'Seed cooldown left : ' + entity.seedCooldown + '\n' }
                 if (typeof entity.HP !== 'undefined') { text += 'HP : ' + entity.HP + '\n' }
                 text += 'FP : ' + entity.FP
                 window.alert(text)
