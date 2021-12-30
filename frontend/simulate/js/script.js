@@ -64,14 +64,14 @@ function displayGrid (_data) {
 }
 
 // Simulate the next step of the ecosystem
-function simulate () {
+const simulate = async() => {
   if (!Object.keys(ecoSymDict).length) {
     loadView('Load an example first !')
   } else {
     const payload = ecoSymDict
     const data = new FormData()
     data.append('json', JSON.stringify(payload))
-    fetch('/API/simulate',
+    await fetch('/API/simulate',
       {
         method: 'POST',
         body: data
