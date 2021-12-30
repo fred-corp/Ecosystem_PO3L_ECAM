@@ -7,7 +7,7 @@
 
 ## TODO
 
-* ⬜️ work on issues
+- [ ] work on issues
 
 ## Usage
 
@@ -53,10 +53,10 @@ Navigate to `localhost:3000`
 
 ## Sources
 
-* Project requirements : ["PO3L - Projet" on Quentin Lurkin's website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html)
-* [W3schools](https://www.w3schools.com)
-* [StackOverflow](https://stackoverflow.com)
-* SOLID principles: [Wikipedia](https://en.wikipedia.org/wiki/SOLID)
+- Project requirements : ["PO3L - Projet" on Quentin Lurkin's website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html)
+- [W3schools](https://www.w3schools.com)
+- [StackOverflow](https://stackoverflow.com)
+- SOLID principles: [Wikipedia](https://en.wikipedia.org/wiki/SOLID)
 
 Made with ❤️, lots of ☕️, and lack of 🛌  
 Published under CreativeCommons BY-NC-SA 4.0
