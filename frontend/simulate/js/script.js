@@ -5,6 +5,7 @@ function loadView (responseLogText = 'No Text specified !') {
 }
 
 let ecoSymDict = {}
+let locatorUUID = ""
 
 document.getElementById('load-example').addEventListener('click', function () { loadExample() })
 document.getElementById('simulate').addEventListener('click', function () { simulate() })
@@ -110,20 +111,11 @@ function displayList(_data){
     list[element].forEach(entity => {
       let entityListName = document.createElement('li')
       let locateButton = document.createElement('a')
-      locateButton.appendChild(document.createTextNode(entity.lifeform + ' (locate)'))
+      locateButton.appendChild(document.createTextNode(entity.lifeform + ' (track)'))
       var locateIntervalID = null
       locateButton.onclick = function() {
-        const entityDiv = document.getElementById(entity.UUID)
-        if(locateIntervalID == null) {
-          locateIntervalID = setInterval(function(){
-          entityDiv.classList.toggle('located')
-          }, 500)
-        }
-        else {
-          clearInterval(locateIntervalID)
-          entityDiv.classList.remove('located')
-          locateIntervalID = null
-        }
+        if(locatorUUID != entity.UUID) { locatorUUID = entity.UUID }
+        else {locatorUUID = ""}
       }
       entityListName.appendChild(locateButton)
       entityList.appendChild(entityListName)
@@ -138,6 +130,11 @@ function displayList(_data){
   listContainer.appendChild(mainList)
   updateCollapsableList()
 }
+
+var locatorID = setInterval(function(){
+  const entityDiv = document.getElementById(locatorUUID)
+  entityDiv.classList.toggle('located')
+}, 500)
 
 // Simulate the next step of the ecosystem
 const simulate = async() => {
