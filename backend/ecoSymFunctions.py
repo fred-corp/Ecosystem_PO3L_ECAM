@@ -342,7 +342,7 @@ def plantProcess(ecoSymDict, object, ecosystem, grid):
 def meatProcess(ecoSymDict, object, ecosystem, grid):
     # check if meat is rot
     if object.age >= object.rotsAt:
-        ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
+        ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y, ecoSymDict["lifeFormDefaults"]["organicwaste"]["FP"]))
         ecosystem.remove_object(object)
         del object
         return ecosystem
@@ -352,7 +352,7 @@ def meatProcess(ecoSymDict, object, ecosystem, grid):
             object.modify_health_points(-1)
             object.modify_energy(ecoSymDict["HPFPEquivalence"])
         else:
-            ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y))
+            ecosystem.add_object(OrganicWaste(object.UUID, "organicwaste", object.x, object.y, ecoSymDict["lifeFormDefaults"]["organicwaste"]["FP"]))
             ecosystem.remove_object(object)
             del object
             return ecosystem
