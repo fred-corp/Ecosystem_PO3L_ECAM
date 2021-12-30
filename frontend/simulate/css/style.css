@@ -21,13 +21,13 @@ body {
 
 @media screen and (max-width: 1600px) {
   #simulation-grid {
-    font-size: 0.8vw;
+    font-size: min(0.8vh, 0.8vw);
   }
 }
 
 @media screen and (max-height: 1600px) {
   #simulation-grid {
-    font-size: 0.8vh;
+    font-size: min(0.8vh, 0.8vw);
   }
 }
 
