@@ -44,6 +44,8 @@ function displayGrid (_data) {
                 text = 'UUID : ' + entity.UUID + '\n'
                 text += 'Symbol : ' + _data.lifeFormDefaults[entity.lifeform].symbol + '\n'
                 text += 'Lifeform : ' + entity.lifeform + '\n'
+                text += "Position X : " + entity.posX + '\n'
+                text += "Position Y : " + entity.posY + '\n'
                 if (typeof _data.genders[entity.gender] !== 'undefined') {
                   text += 'Gender : ' + _data.genders[entity.gender] + '\n'
                   if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
