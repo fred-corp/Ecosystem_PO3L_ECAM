@@ -33,8 +33,7 @@ function displayGrid (_data) {
       const cell = document.createElement('div')
       for (let i = 0; i < population.length; i++) {
         if (population[i].posX === x && population[i].posY === y) {
-          if(cell.innerText === '' || _data.lifeFormDefaults[population[i].lifeform].type < 3) {
-            console.log(_data.lifeFormDefaults[population[i].lifeform].symbol)
+          if (cell.innerText === '' || _data.lifeFormDefaults[population[i].lifeform].type < 3) {
             cell.innerText = _data.lifeFormDefaults[population[i].lifeform].symbol
             cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
             cell.onclick = (function (entity) {
@@ -43,13 +42,15 @@ function displayGrid (_data) {
                 text = 'UUID : ' + entity.UUID + '\n'
                 text += 'Symbol : ' + _data.lifeFormDefaults[entity.lifeform].symbol + '\n'
                 text += 'Lifeform : ' + entity.lifeform + '\n'
-                text += 'Gender : ' + _data.genders[entity.gender] + '\n'
-                if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
-                  text += 'Pregnant : ' + entity.isPregnant + '\n'
-                  text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
+                if (typeof _data.genders[entity.gender] !== 'undefined') {
+                  text += 'Gender : ' + _data.genders[entity.gender] + '\n'
+                  if (entity.gender === _data.lifeFormDefaults[entity.lifeform].getsPregnant) {
+                    text += 'Pregnant : ' + entity.isPregnant + '\n'
+                    text += 'UntilBirth : ' + entity.gestationCooldown + '\n'
+                  }
                 }
-                text += 'Age : ' + entity.age + '\n'
-                text += 'HP : ' + entity.HP + '\n'
+                if (typeof entity.age !== 'undefined') { text += 'Age : ' + entity.age + '\n' }
+                if (typeof entity.HP !== 'undefined') { text += 'HP : ' + entity.HP + '\n' }
                 text += 'FP : ' + entity.FP
                 window.alert(text)
               }
