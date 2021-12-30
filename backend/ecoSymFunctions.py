@@ -338,8 +338,8 @@ def plantProcess(ecoSymDict, object, ecosystem, grid):
                         object.seed_radius,
                         0))
                 object.seed_cooldown = ecoSymDict["lifeFormDefaults"][object.lifeform]["seedCooldown"]
-            else :
-                object.seed_cooldown -= 1
+        else :
+            object.seed_cooldown -= 1
 
     # increase age
     object.increase_age()
