@@ -4,10 +4,14 @@ function loadView (responseLogText = 'No Text specified !') {
   document.getElementById('response-log').innerHTML = responseLogText
 }
 
+let ecoSymDict = {}
+let autoSim = false
+
 document.getElementById('load-example').addEventListener('click', function () { loadExample() })
 document.getElementById('simulate').addEventListener('click', function () { simulate() })
+document.getElementById('start-auto').addEventListener('click', function () { autoSimulate(true) })
+document.getElementById('pause-auto').addEventListener('click', function () { autoSimulate(false) })
 
-let ecoSymDict = {}
 
 // Load example ecosystem
 function loadExample () {
@@ -82,5 +86,15 @@ const simulate = async() => {
         loadView('')
         displayGrid(ecoSymDict)
       })
+  }
+}
+
+let autoPlayID = null
+
+function autoSimulate(play) {
+  if(play){
+    autoPlayID = setInterval(simulate, 2000)
+  } else {
+    clearInterval(autpolayID)
   }
 }
