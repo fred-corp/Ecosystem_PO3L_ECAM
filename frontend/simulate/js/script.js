@@ -17,10 +17,14 @@ function loadExample () {
     .then(function (res) { return res.json() })
     .then(function (data) {
       ecoSymDict = data
-      displayGrid(ecoSymDict)
-      displayList(ecoSymDict)
+      updateView(ecoSymDict)
       pauseAutoSimulate()
     })
+}
+
+function updateView(_data) {
+  displayGrid(_data)
+  displayList(_data)
 }
 
 const gridContainer = document.getElementById('simulation-grid')
@@ -136,7 +140,7 @@ const simulate = async() => {
       .then(function (data) {
         ecoSymDict = data
         loadView('')
-        displayGrid(ecoSymDict)
+        updateView(ecoSymDict)
       })
   }
 }
@@ -160,7 +164,6 @@ function updateCollapsableList () {
 const toggler = document.getElementsByClassName('caret')
   for (var i = 0; i < toggler.length; i++) {
     toggler[i].addEventListener('click', function() {
-      console.log('aaa')
       this.parentElement.querySelector('.nested').classList.toggle('active')
       this.classList.toggle('caret-down')
     })
