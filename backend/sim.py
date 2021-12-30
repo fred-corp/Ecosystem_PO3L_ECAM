@@ -19,6 +19,7 @@ def simulateNextStep(ecoSymDict) :
     addPopulation(ecoSymDict, ecosystem)
     for i in range(0, len(ecosystem.objects)) :
         if(i < len(ecosystem.objects)) :
+            simGrid = updateGrid(simGrid, ecosystem)
             ecosystem = process(ecoSymDict, ecosystem.objects[i], ecosystem, simGrid)
     newEcoSymDict = exportEcosystemToDict(ecoSymDict, ecosystem)
     return newEcoSymDict
