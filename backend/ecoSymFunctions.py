@@ -68,6 +68,7 @@ def addPopulation (ecoSymDict, ecosystem) :
                     lifeformDefault["adultAt"],
                     lifeformDefault["rootRadius"],
                     lifeformDefault["seedRadius"],
+                    item["seedCooldown"]
             ))
         elif lifeformDefault["type"] == 3 :
             ecosystem.add_object(Meat(
@@ -105,6 +106,8 @@ def exportEcosystemToDict(oldEcoSymDict, ecosystem) :
             itemDict["age"] = item.age
             if isinstance(item, Life): 
                 itemDict["HP"] = item.health_points
+                if isinstance(item, Plant) :
+                    itemDict["seedCooldown"] = item.seed_cooldown
                 if isinstance(item, Animal) :
                     itemDict["gender"] = item.gender
                     # TODO
@@ -316,22 +319,28 @@ def plantProcess(ecoSymDict, object, ecosystem, grid):
 
     # seed
     if object.age >= object.adultAt:
-        if is_empty(grid, seed_zone):
-            seed = random.choice(is_empty(grid, seed_zone))
-            ecosystem.add_object(type(object)(
-                    str(uuid.uuid4()),
-                    object.lifeform,
-                    seed[0],
-                    seed[1],
-                    0,
-                    object.lifespan,
-                    object.health_points,
-                    object.max_health_points,
-                    object.energy_points,
-                    object.max_energy_points,
-                    object.adultAt,
-                    object.root_radius,
-                    object.seed_radius))
+        if(object.seed_cooldown <= 0) :
+            if is_empty(grid, seed_zone):
+                seed = random.choice(is_empty(grid, seed_zone))
+                ecosystem.add_object(Plant(
+                        str(uuid.uuid4()),
+                        object.lifeform,
+                        seed[0],
+                        seed[1],
+                        0,
+                        object.lifespan,
+                        object.health_points,
+                        object.max_health_points,
+                        object.energy_points,
+                        object.max_energy_points,
+                        object.adultAt,
+                        object.root_radius,
+                        object.seed_radius,
+                        0))
+                object.seed_cooldown = ecoSymDict["lifeFormDefaults"][object.lifeform]["seedCooldown"]
+            else :
+                object.seed_cooldown -= 1
+
     # increase age
     object.increase_age()
     # decrease energy with time

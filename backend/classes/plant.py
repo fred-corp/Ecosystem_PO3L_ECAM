@@ -17,6 +17,7 @@ class Plant(Life):
         adultAt,
         root_radius,
         seed_radius,
+        seed_cooldown
     ):
         super().__init__(
             UUID,
@@ -33,6 +34,7 @@ class Plant(Life):
         self.adultAt = adultAt
         self.root_radius = root_radius
         self.seed_radius = seed_radius
+        self.seed_cooldown = seed_cooldown
 
     def get_root_zone(self, size):
         zone = []
