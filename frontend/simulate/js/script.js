@@ -5,7 +5,10 @@ function loadView (responseLogText = 'No Text specified !') {
 }
 
 let ecoSymDict = {}
-let locatorUUID = ""
+let locatorUUID = ''
+let prevLocatorUUID = ''
+let locatorColor = ''
+let prevLocatorColor = ''
 
 document.getElementById('load-example').addEventListener('click', function () { loadExample() })
 document.getElementById('simulate').addEventListener('click', function () { simulate() })
@@ -112,12 +115,15 @@ function displayList(_data){
       let entityListName = document.createElement('li')
       let locateButton = document.createElement('a')
       locateButton.appendChild(document.createTextNode(entity.lifeform + ' (track)'))
-      var locateIntervalID = null
       locateButton.onclick = function() {
-        if(locatorUUID != entity.UUID) { locatorUUID = entity.UUID }
+        if(locatorUUID != entity.UUID) { 
+          locatorUUID = entity.UUID
+          locatorColor = _data.lifeFormDefaults[entity.lifeform].color
+        }
         else {
           const entityDiv = document.getElementById(locatorUUID)
           entityDiv.classList.remove('located')
+          entityDiv.style.backgroundColor = _data.lifeFormDefaults[entity.lifeform].color
           locatorUUID = ""
         }
       }
@@ -136,8 +142,20 @@ function displayList(_data){
 }
 
 var locatorID = setInterval(function(){
+  if(locatorUUID != prevLocatorUUID){
+    const entityDiv = document.getElementById(prevLocatorUUID)
+    if(entityDiv != null) {
+      entityDiv.classList.remove('located')
+      entityDiv.style.backgroundColor = prevLocatorColor
+    }
+    prevLocatorUUID = locatorUUID
+    prevLocatorColor = locatorColor
+  }
   const entityDiv = document.getElementById(locatorUUID)
-  if(entityDiv != null) { entityDiv.classList.toggle('located') }
+  if(entityDiv != null) { 
+    entityDiv.classList.toggle('located')
+    entityDiv.style.backgroundColor = '#FF0000'
+  }
 }, 500)
 
 // Simulate the next step of the ecosystem
