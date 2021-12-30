@@ -85,30 +85,38 @@ function displayList(_data){
 
   listContainer.innerHTML = ''
   var mainList = document.createElement('ul')
-  var mainListName = document.createElement('li')
-  mainListName.appendChild(document.createTextNode('Entities'))
-  mainList.appendChild(mainListName)
+  mainList.id = 'entityUL'
+  var mainListContainer = document.createElement('li')
+  var mainListNameSpan = document.createElement('span')
+  mainListNameSpan.className = 'caret'
+  mainListNameSpan.appendChild(document.createTextNode('Entities'))
+  mainListContainer.appendChild(mainListNameSpan)
   
   var subList = document.createElement('ul')
-
+  subList.className = 'nested'
   _data.types.forEach(element => {
-    let subListName = document.createElement('li')
-    subListName.appendChild(document.createTextNode(element))
-    subList.appendChild(subListName)
+    var subListContainer = document.createElement('li')
+    var subListNameSpan = document.createElement('span')
+    subListNameSpan.className = 'caret'
+    subListNameSpan.appendChild(document.createTextNode(element))
+    subListContainer.appendChild(subListNameSpan)
   
     let entityList = document.createElement('ul')
-  
+    entityList.className = 'nested'
     list[element].forEach(entity => {
       let entityListName = document.createElement('li')
       entityListName.appendChild(document.createTextNode(entity.UUID))
       entityList.appendChild(entityListName)
     })
-  
-    subList.appendChild(entityList)
+
+    subListContainer.appendChild(entityList)
+    subList.appendChild(subListContainer)
   })
   
-  mainList.appendChild(subList)
+  mainListContainer.appendChild(subList)
+  mainList.appendChild(mainListContainer)
   listContainer.appendChild(mainList)
+  updateCollapsableList()
 }
 
 // Simulate the next step of the ecosystem
@@ -148,12 +156,13 @@ function pauseAutoSimulate() {
 
 
 // Collapsable entity list handler
-var toggler = document.getElementsByClassName("caret");
-var i;
-
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-    this.classList.toggle("caret-down");
-  });
+function updateCollapsableList () {
+const toggler = document.getElementsByClassName('caret')
+  for (var i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener('click', function() {
+      console.log('aaa')
+      this.parentElement.querySelector('.nested').classList.toggle('active')
+      this.classList.toggle('caret-down')
+    })
+  }
 }
