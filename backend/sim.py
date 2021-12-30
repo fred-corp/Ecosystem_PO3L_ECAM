@@ -1,7 +1,7 @@
 import json
 import sys
 
-from ecoSymFunctions import creatGrid, addPopulation, process, exportEcosystemToDict
+from ecoSymFunctions import creatGrid, addPopulation, updateGrid, process, exportEcosystemToDict
 
 from classes.ecosystem import Ecosystem
 
@@ -18,6 +18,7 @@ def simulateNextStep(ecoSymDict) :
     simGrid = creatGrid(ecosystem.size_x, ecosystem.size_y)
     addPopulation(ecoSymDict, ecosystem)
     for i in range(len(ecosystem.objects)) :
+        simGrid = updateGrid(simGrid, ecosystem)
         ecosystem = process(ecoSymDict, ecosystem.objects[i], ecosystem, simGrid)
     newEcoSymDict = exportEcosystemToDict(ecoSymDict, ecosystem)
     return newEcoSymDict

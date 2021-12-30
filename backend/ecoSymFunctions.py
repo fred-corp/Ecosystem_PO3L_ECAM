@@ -149,6 +149,11 @@ def process(ecoSymDict, object, ecosystem, grid):
     return ecosystem
 
 
+def updateGrid(grid, ecosystem) :
+    for item in ecosystem.objects : 
+        grid[item.y][item.x] = 1
+    return grid
+
 
 def animalProcess(ecoSymDict, object, ecosystem, grid):
     # check if the animal is too old
@@ -422,8 +427,8 @@ def is_empty(grid, list):
 # Find a random move
 def random_move(ecosystem, grid, object):
     possible = []
-    for i in range(object.max_move):
-        for j in range(object.max_move):
+    for i in range(object.max_move+1):
+        for j in range(object.max_move+1):
             if object.x+i in range(ecosystem.size_x) and object.y+j in range(ecosystem.size_y):
                 possible.append([object.x+i, object.y+j])
             if object.x-i in range(ecosystem.size_x) and object.y-j in range(ecosystem.size_y):
