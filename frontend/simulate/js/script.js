@@ -186,10 +186,3 @@ const toggler = document.getElementsByClassName('caret')
     })
   }
 }
-
-
-
-function locateEntity(uuid){
-  const entityDiv = document.getElementById(uuid)
-  entityDiv.cssText.toggle('border: 1px solid #FF0000;').toggle()
-}
