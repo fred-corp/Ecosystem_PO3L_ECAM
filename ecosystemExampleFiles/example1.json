@@ -87,8 +87,8 @@
 			"lifespan" : 500,
 			"adultAt" : 60,
 			"rootRadius" : 20,
-			"seedRadius" : 80,
-			"seedCooldown" : 3
+			"seedRadius" : 5,
+			"seedCooldown" : 10
 		},
 		"carrot" : {
 			"type" : 2,
@@ -96,9 +96,9 @@
 			"symbol" : "🥕",
 			"lifespan" : 100,
 			"adultAt" : 10,
-			"rootRadius" : 3,
-			"seedRadius" : 6,
-			"seedCooldown" : 3
+			"rootRadius" : 2,
+			"seedRadius" : 2,
+			"seedCooldown" : 5
 		}
 	},
 	"rounds" : [
