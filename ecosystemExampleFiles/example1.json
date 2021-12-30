@@ -133,10 +133,10 @@
 			{"UUID" : "e6630773-2ce5-4d60-8fa8-4d388c2a2555", "lifeform" : "carrot", "posX" : 37, "posY" : 39, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
 			{"UUID" : "9f5a89c1-e5b7-4d34-ab57-dd76843cd65e", "lifeform" : "carrot", "posX" : 42, "posY" : 48, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
 			{"UUID" : "ef248302-ce11-44b8-afb5-8cd14387e40e", "lifeform" : "carrot", "posX" : 49, "posY" : 38, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
-			{"UUID" : "60da9c81-06c6-46b6-ad52-ef52574e2743", "lifeform" : "tomato", "posX" : 25, "posY" : 12, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
-			{"UUID" : "80cd8144-2d77-4dd3-bd15-1bcf3126e1b3", "lifeform" : "tomato", "posX" : 29, "posY" : 14, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
-			{"UUID" : "55d7d08e-b06f-4bec-bb97-6ff1a0aae187", "lifeform" : "tomato", "posX" : 27, "posY" : 15, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
-			{"UUID" : "ba13464b-8118-4bc9-ad9a-13e5c0f7d754", "lifeform" : "tomato", "posX" : 33, "posY" : 14, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0}
+			{"UUID" : "60da9c81-06c6-46b6-ad52-ef52574e2743", "lifeform" : "tomato", "posX" : 12, "posY" : 25, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
+			{"UUID" : "80cd8144-2d77-4dd3-bd15-1bcf3126e1b3", "lifeform" : "tomato", "posX" : 14, "posY" : 29, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
+			{"UUID" : "55d7d08e-b06f-4bec-bb97-6ff1a0aae187", "lifeform" : "tomato", "posX" : 15, "posY" : 27, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0},
+			{"UUID" : "ba13464b-8118-4bc9-ad9a-13e5c0f7d754", "lifeform" : "tomato", "posX" : 14, "posY" : 35, "age" : 0, "HP" : 20, "FP" : 20, "seedCooldown" : 0}
 			
 		]
 	]
