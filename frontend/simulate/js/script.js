@@ -109,7 +109,13 @@ function displayList(_data){
     entityList.className = 'nested'
     list[element].forEach(entity => {
       let entityListName = document.createElement('li')
-      entityListName.appendChild(document.createTextNode(entity.UUID))
+      let locateButton = document.createElement('a')
+      locateButton.appendChild(document.createTextNode(entity.lifeform + ' (locate)'))
+      locateButton.onclick = function() {
+        const entityDiv = document.getElementById(entity.UUID)
+        entityDiv.classList.toggle('located')
+      }
+      entityListName.appendChild(locateButton)
       entityList.appendChild(entityListName)
     })
 
@@ -168,4 +174,11 @@ const toggler = document.getElementsByClassName('caret')
       this.classList.toggle('caret-down')
     })
   }
+}
+
+
+
+function locateEntity(uuid){
+  const entityDiv = document.getElementById(uuid)
+  entityDiv.cssText.toggle('border: 1px solid #FF0000;').toggle()
 }
