@@ -82,24 +82,31 @@ function displayList(_data){
   population.forEach(entity => {
     list[_data.types[_data.lifeFormDefaults[entity.lifeform].type]].push(entity)
   })
+
   listContainer.innerHTML = ''
   var mainList = document.createElement('ul')
   var mainListName = document.createElement('li')
   mainListName.appendChild(document.createTextNode('Entities'))
   mainList.appendChild(mainListName)
+  
   var subList = document.createElement('ul')
+
   _data.types.forEach(element => {
     let subListName = document.createElement('li')
     subListName.appendChild(document.createTextNode(element))
     subList.appendChild(subListName)
+  
     let entityList = document.createElement('ul')
+  
     list[element].forEach(entity => {
       let entityListName = document.createElement('li')
       entityListName.appendChild(document.createTextNode(entity.UUID))
       entityList.appendChild(entityListName)
     })
+  
     subList.appendChild(entityList)
   })
+  
   mainList.appendChild(subList)
   listContainer.appendChild(mainList)
 }
