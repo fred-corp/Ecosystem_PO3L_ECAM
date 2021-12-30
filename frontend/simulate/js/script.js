@@ -111,9 +111,19 @@ function displayList(_data){
       let entityListName = document.createElement('li')
       let locateButton = document.createElement('a')
       locateButton.appendChild(document.createTextNode(entity.lifeform + ' (locate)'))
+      var locateIntervalID = null
       locateButton.onclick = function() {
         const entityDiv = document.getElementById(entity.UUID)
-        entityDiv.classList.toggle('located')
+        if(locateIntervalID == null) {
+          locateIntervalID = setInterval(function(){
+          entityDiv.classList.toggle('located')
+          }, 500)
+        }
+        else {
+          clearInterval(locateIntervalID)
+          entityDiv.classList.remove('located')
+          locateIntervalID = null
+        }
       }
       entityListName.appendChild(locateButton)
       entityList.appendChild(entityListName)
