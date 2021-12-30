@@ -133,7 +133,7 @@ function displayList(_data){
 
 var locatorID = setInterval(function(){
   const entityDiv = document.getElementById(locatorUUID)
-  entityDiv.classList.toggle('located')
+  if(entityDiv != null) { entityDiv.classList.toggle('located') }
 }, 500)
 
 // Simulate the next step of the ecosystem
