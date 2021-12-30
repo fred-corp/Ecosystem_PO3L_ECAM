@@ -43,7 +43,7 @@
 		},
 		"platypuss" : {
 			"type" : 1,
-			"color" : "#e25f47",
+			"color" : "#00b1b1",
 			"symbol" : "",
 			"lifespan" : 80,
 			"reproduceCooldown" : 3,
@@ -82,7 +82,7 @@
 		},
 		"oak" : {
 			"type" : 2,
-			"color" : "#00FF00",
+			"color" : "#00ff00",
 			"symbol" : "🌳",
 			"lifespan" : 500,
 			"adultAt" : 60,
@@ -92,7 +92,7 @@
 		},
 		"carrot" : {
 			"type" : 2,
-			"color" : "#ED9121",
+			"color" : "#ed9121",
 			"symbol" : "🥕",
 			"lifespan" : 100,
 			"adultAt" : 10,
@@ -102,7 +102,7 @@
 		},
 		"tomato" : {
 			"type" : 2,
-			"color" : "#FF6347",
+			"color" : "#ff6347",
 			"symbol" : "🍅",
 			"lifespan" : 80,
 			"adultAt" : 10,
