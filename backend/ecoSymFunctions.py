@@ -246,23 +246,23 @@ def animalProcess(ecoSymDict, object, ecosystem, grid):
     # move
     seeked = seek(vision_zone, object, ecosystem)
     if seeked["partners"]:
-        print("{} seeked partner !".format(object.UUID))
+        # print("{} seeked partner !".format(object.UUID))
         new_pos = move(ecosystem, grid, object, seeked["partners"])
         object.make_move(new_pos)
         object.modify_energy(-2)
     elif seeked["food"]:
-        print("{} seeked food !".format(object.UUID))
+        # print("{} seeked food !".format(object.UUID))
         new_pos = move(ecosystem, grid, object, seeked["food"])
         object.make_move(new_pos)
         object.modify_energy(-2)
     elif seeked["target_prey"]:
-        print("{} seeked prey !".format(object.UUID))
+        # print("{} seeked prey !".format(object.UUID))
         new_pos = move(ecosystem, grid, object, seeked["target_prey"])
         object.make_move(new_pos)
         object.modify_energy(-2)
     else:
         # random move
-        print("{} moved randomly !".format(object.UUID))
+        # print("{} moved randomly !".format(object.UUID))
         new_pos = random_move(ecosystem, grid, object)
         object.make_move(new_pos)
         object.modify_energy(-2)
@@ -420,10 +420,10 @@ def random_move(ecosystem, grid, object):
             if object.x-i in range(ecosystem.size_x) and object.y-j in range(ecosystem.size_y):
                 possible.append([object.x-i, object.y-j])
     filtered_possible = is_empty(grid, possible)
-    if filtered_possible != possible :
-        print(object.UUID)
-        print(possible)
-        print(filtered_possible)
+    # if filtered_possible != possible :
+    #     print(object.UUID)
+    #     print(possible)
+    #     print(filtered_possible)
     return random.choice(filtered_possible)
 
 
