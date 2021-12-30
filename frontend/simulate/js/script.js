@@ -18,6 +18,7 @@ function loadExample () {
     .then(function (data) {
       ecoSymDict = data
       displayGrid(ecoSymDict)
+      pauseAutoSimulate()
     })
 }
 
