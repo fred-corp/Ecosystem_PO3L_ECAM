@@ -18,19 +18,20 @@ function loadExample () {
     .then(function (data) {
       ecoSymDict = data
       displayGrid(ecoSymDict)
+      displayList(ecoSymDict)
       pauseAutoSimulate()
     })
 }
 
-const container = document.getElementById('simulation-grid')
+const gridContainer = document.getElementById('simulation-grid')
 
 function displayGrid (_data) {
-  container.innerHTML = ''
+  gridContainer.innerHTML = ''
   const rows = _data.fieldSize[1]
   const cols = _data.fieldSize[0]
   const population = _data.rounds[_data.rounds.length - 1]
-  container.style.setProperty('--grid-rows', rows)
-  container.style.setProperty('--grid-cols', cols)
+  gridContainer.style.setProperty('--grid-rows', rows)
+  gridContainer.style.setProperty('--grid-cols', cols)
   for (let y = rows-1; y >= 0; y--) {
     for (let x = 0; x < cols; x++) {
       const cell = document.createElement('div')
@@ -65,9 +66,42 @@ function displayGrid (_data) {
           }
         }
       }
-      container.appendChild(cell).className = 'grid-item'
+      gridContainer.appendChild(cell).className = 'grid-item'
     }
   }
+}
+
+const listContainer = document.getElementById('simulation-list')
+
+function displayList(_data){
+  let list = {}
+  _data.types.forEach(element => {
+    list[element] = []
+  })
+  const population = _data.rounds[_data.rounds.length - 1]
+  population.forEach(entity => {
+    list[_data.types[_data.lifeFormDefaults[entity.lifeform].type]].push(entity)
+  })
+  listContainer.innerHTML = ''
+  var mainList = document.createElement('ul')
+  var mainListName = document.createElement('li')
+  mainListName.appendChild(document.createTextNode('Entities'))
+  mainList.appendChild(mainListName)
+  var subList = document.createElement('ul')
+  _data.types.forEach(element => {
+    let subListName = document.createElement('li')
+    subListName.appendChild(document.createTextNode(element))
+    subList.appendChild(subListName)
+    let entityList = document.createElement('ul')
+    list[element].forEach(entity => {
+      let entityListName = document.createElement('li')
+      entityListName.appendChild(document.createTextNode(entity.UUID))
+      entityList.appendChild(entityListName)
+    })
+    subList.appendChild(entityList)
+  })
+  mainList.appendChild(subList)
+  listContainer.appendChild(mainList)
 }
 
 // Simulate the next step of the ecosystem
@@ -103,4 +137,16 @@ function startAutoSimulate() {
 function pauseAutoSimulate() {
   clearInterval(autoPlayID)
   autoPlayID = null
+}
+
+
+// Collapsable entity list handler
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
 }
