@@ -17,9 +17,9 @@ def simulateNextStep(ecoSymDict) :
     ecosystem = createEcosystem(ecoSymDict["fieldSize"][0], ecoSymDict["fieldSize"][1])
     simGrid = creatGrid(ecosystem.size_x, ecosystem.size_y)
     addPopulation(ecoSymDict, ecosystem)
-    for i in range(len(ecosystem.objects)) :
-        simGrid = updateGrid(simGrid, ecosystem)
-        ecosystem = process(ecoSymDict, ecosystem.objects[i], ecosystem, simGrid)
+    for i in range(0, len(ecosystem.objects)) :
+        if(i < len(ecosystem.objects)) :
+            ecosystem = process(ecoSymDict, ecosystem.objects[i], ecosystem, simGrid)
     newEcoSymDict = exportEcosystemToDict(ecoSymDict, ecosystem)
     return newEcoSymDict
 
