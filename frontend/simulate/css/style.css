@@ -19,6 +19,12 @@ body {
     sans-serif;
 }
 
+@media screen and (max-width: 1600px) {
+  #simulation-grid {
+    font-size: 0.8vw;
+  }
+}
+
 h1 {
   text-align: center;
 }
