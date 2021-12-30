@@ -88,6 +88,15 @@
 			"adultAt" : 60,
 			"rootRadius" : 20,
 			"seedRadius" : 80
+		},
+		"carrot" : {
+			"type" : 2,
+			"color" : "#ED9121",
+			"symbol" : "🥕",
+			"lifespan" : 100,
+			"adultAt" : 10,
+			"rootRadius" : 3,
+			"seedRadius" : 6
 		}
 	},
 	"rounds" : [
@@ -106,8 +115,14 @@
 			{"UUID" : "e616355f-390e-4e3a-a864-b54e27f0851e", "lifeform" : "seahorse", "posX" : 44, "posY" : 6, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 1, "isPregnant" : 0, "gestationCooldown" : 0},
 			{"UUID" : "6574a724-7d7a-422c-a84d-8711b20ca55c", "lifeform" : "seahorse", "posX" : 39, "posY" : 26, "age" : 0, "HP" : 20, "FP" : 20, "gender" : 0, "isPregnant" : 0, "gestationCooldown" : 0},
 			{"UUID" : "0b41ed86-9be4-4899-814c-8d1a4bcea151", "lifeform" : "oak", "posX" : 23, "posY" : 29, "age" : 0, "HP" : 20, "FP" : 20},
-			{"UUID" : "0b41ed86-9be4-4899-814c-8d1a4bcea151", "lifeform" : "oak", "posX" : 47, "posY" : 4, "age" : 0, "HP" : 20, "FP" : 20},
-			{"UUID" : "0b41ed86-9be4-4899-814c-8d1a4bcea151", "lifeform" : "oak", "posX" : 5, "posY" : 46, "age" : 0, "HP" : 20, "FP" : 20}
+			{"UUID" : "d768096a-534a-4dfc-87e9-187beac1f2b0", "lifeform" : "oak", "posX" : 47, "posY" : 4, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "7f973152-f44a-4f85-99d4-d9ebd1d127f3", "lifeform" : "oak", "posX" : 5, "posY" : 46, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "a04a8da4-8946-4dbe-a378-6e897e4584bb", "lifeform" : "carrot", "posX" : 45, "posY" : 46, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "e6630773-2ce5-4d60-8fa8-4d388c2a2555", "lifeform" : "carrot", "posX" : 37, "posY" : 39, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "9f5a89c1-e5b7-4d34-ab57-dd76843cd65e", "lifeform" : "carrot", "posX" : 42, "posY" : 48, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "ef248302-ce11-44b8-afb5-8cd14387e40e", "lifeform" : "carrot", "posX" : 49, "posY" : 38, "age" : 0, "HP" : 20, "FP" : 20},
+			{"UUID" : "ef248302-ce11-44b8-afb5-8cd14387e40e", "lifeform" : "carrot", "posX" : 43, "posY" : 42, "age" : 0, "HP" : 20, "FP" : 20}
+			
 		]
 	]
 }
