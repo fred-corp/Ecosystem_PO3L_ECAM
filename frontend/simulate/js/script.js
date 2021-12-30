@@ -39,6 +39,7 @@ function displayGrid (_data) {
           if (cell.innerText === '' || _data.lifeFormDefaults[population[i].lifeform].type < 3) {
             cell.innerText = _data.lifeFormDefaults[population[i].lifeform].symbol
             cell.style.cssText = 'background-color: ' + _data.lifeFormDefaults[population[i].lifeform].color + ';'
+            cell.id = population[i].UUID
             cell.onclick = (function (entity) {
               return function () {
                 let text = ''
