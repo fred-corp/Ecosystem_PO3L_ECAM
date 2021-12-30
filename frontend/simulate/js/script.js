@@ -115,7 +115,11 @@ function displayList(_data){
       var locateIntervalID = null
       locateButton.onclick = function() {
         if(locatorUUID != entity.UUID) { locatorUUID = entity.UUID }
-        else {locatorUUID = ""}
+        else {
+          const entityDiv = document.getElementById(locatorUUID)
+          entityDiv.classList.remove('located')
+          locatorUUID = ""
+        }
       }
       entityListName.appendChild(locateButton)
       entityList.appendChild(entityListName)
