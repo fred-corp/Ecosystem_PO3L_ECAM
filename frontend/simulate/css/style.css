@@ -68,14 +68,13 @@ p {
 }
 
 #simGrid {
-  position: relative;
-  margin: 0 auto;
-  height: 75vh;
-  width: 75vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #simulation-grid {
-  margin: auto;
+  margin-left: max(50vw - 37.5vh, 50vw - 37.5vw);
   height: 75vh;
   width: 75vh;
   max-height: 75vw;
@@ -97,9 +96,7 @@ ul, #entityUL {
 }
 
 #entityUL {
-  position:absolute;
-  top:0px;
-  left:100%;
+  max-width: 100vw;
   width: fit-content;
 }
 
