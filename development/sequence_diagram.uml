@@ -1,9 +1,16 @@
 @startuml
+skinparam backgroundcolor transparent
 
 participant webGUI
 participant server
 participant sim
 participant ecoSymFunctions
+participant Herbivore
+participant Carnivore
+participant Plant
+participant Meat
+participant OrganicWaste
+
 
 webGUI -> server: post JSON
 server -> sim: send JSON object containing ecosystem data
@@ -15,14 +22,87 @@ ecoSymFunctions -> sim: loaded ecosystem
 loop for each entity
 	sim -> ecoSymFunctions: ecosystem, entity, grid data
 	alt type of entity
-	else animal
-		ecoSymFunctions -> ecoSymFunctions: 
-	else plant
-		ecoSymFunctions -> ecoSymFunctions: 
-	else meat
-		ecoSymFunctions -> ecoSymFunctions: 
-	else organic waste
-		ecoSymFunctions -> ecoSymFunctions: 
+	else Animal
+		alt age > lifespan
+      ecoSymFunctions --> sim : remove_object(object)
+      ecoSymFunctions -> Animal !! : << destroy >>
+      ecoSymFunctions -> Meat : << create >>
+      ecoSymFunctions --> sim : add(Meat)
+    end
+    alt energy_points is 0
+      alt health_points
+        else health_points > 0
+          Animal -> Animal : modify_health_points(-1)
+          Animal -> Animal : modify_energy(HPFPEquivalence)
+        else health_points <= 0
+          ecoSymFunctions --> sim : remove_object(object)
+          ecoSymFunctions -> Animal !! : << destroy >>
+          ecoSymFunctions -> Meat : << create >>
+          ecoSymFunctions --> sim : add(Meat)
+      end
+    end
+    alt eat_meat()
+      else True
+        alt found prey
+          Carnivore -> Herbivore : modify_health_points(-1)
+          Carnivore -> Carnivore : modify_energy(-2)
+        end
+      else False
+    end
+	else Plant
+    alt age > lifespan
+      ecoSymFunctions --> sim : remove_object(object)
+      ecoSymFunctions -> Animal !! : << destroy >>
+      ecoSymFunctions -> OrganicWaste : << create >>
+      ecoSymFunctions --> sim : add(OrganicWaste)
+    end
+    alt energy_points is 0
+      alt health_points
+        else health_points > 0
+          Animal -> Animal : modify_health_points(-1)
+          Animal -> Animal : modify_energy(HPFPEquivalence)
+        else health_points <= 0
+          ecoSymFunctions --> sim : remove_object(object)
+          ecoSymFunctions -> Animal !! : << destroy >>
+          ecoSymFunctions -> OrganicWaste : << create >>
+          ecoSymFunctions --> sim : add(OrganicWaste)
+      end
+    end
+    alt age > adultAt
+        alt seed_cooldown <= 0
+          ecoSymFunctions -> Plant : << create >> in seed_zone
+          ecoSymFunctions --> sim : add(Plant)
+        end
+        Plant -> Plant : seed_cooldown -= 1
+    end
+    Plant -> Plant : increase_age()
+    Plant -> Plant : modify_energy(-1)
+	else Meat
+		alt age > rotsAt
+      ecoSymFunctions --> sim : remove_object(object)
+      ecoSymFunctions -> Meat !! : << destroy >>
+      ecoSymFunctions -> organicWaste : << create >>
+      ecoSymFunctions --> sim : add(organicWaste)
+    end
+    alt energy_points is 0
+      alt health_points
+        else health_points > 0
+          Animal -> Animal : modify_health_points(-1)
+          Animal -> Animal : modify_energy(HPFPEquivalence)
+        else health_points <= 0
+          ecoSymFunctions --> sim : remove_object(object)
+          ecoSymFunctions -> Meat !! : << destroy >>
+          ecoSymFunctions -> OrganicWaste : << create >>
+          ecoSymFunctions --> sim : add(OrganicWaste)
+      end 
+    end
+  Meat -> Meat : increase_age()
+  Meat -> Meat : modify_energy(-1)
+	else OrganicWaste
+		alt energy_points <= 0
+      ecoSymFunctions --> sim : remove_object(object)
+      ecoSymFunctions -> OrganicWaste !! : << destroy >>
+    end
 	end
 	ecoSymFunctions -> sim: updated ecosystem
 end
