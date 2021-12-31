@@ -47,8 +47,48 @@ loop for each entity
           Carnivore -> Herbivore : modify_health_points(-1)
           Carnivore -> Carnivore : modify_energy(-2)
         end
-      else False
     end
+    alt eat_meat()
+      else True
+        alt food in contact_zone
+          Carnivore -> Meat : modify_health_points(-hunger)
+          Carnivore -> Carnivore : modify_energy(hunger)
+        end
+      else False
+        alt food in contact_zone
+          Herbivore -> Plant : modify_health_points(-hunger)
+          Herbivore -> Herbivore : modify_energy(hunger)
+        end
+    end
+    alt partner in contact_zone
+      Animal -> Animal : isPregnant = 1
+      Animal -> Animal : modify_energy(-2)
+      Animal -> Animal : gestationCooldown = gestationCooldown
+    end
+    alt is pregnant
+      alt gestationCooldown 
+      else gestationCooldown = 0
+        ecoSymFunctions -> Animal : << create >> in contact_zone
+        ecoSymFunctions --> sim : add(Animal)
+        Animal -> Animal : isPregnant = 0
+      else gestationCooldown > 0
+        Animal -> Animal : isPregnant = 1
+      end
+    end
+    ecoSymFunctions -> OrganicWaste : << create >> in contact_zone
+    ecoSymFunctions --> sim : add(OrganicWaste)
+    alt move
+    else partner in vision_zone
+      
+    else food in vision_zone
+      Animal -> Animal : move to target
+    else prey in vision_zone
+      Animal -> Animal : move to target
+    else random
+      Animal -> Animal : random move
+    end
+  Animal -> Animal : increase_age()
+  Animal -> Animal : modify_energy(-1)
 	else Plant
     alt age > lifespan
       ecoSymFunctions --> sim : remove_object(object)
