@@ -85,7 +85,7 @@ You'll also see a collapsable list of the entities next to the grid. This list d
 
 ### Carnivore sequence diagram
 
-![sequence diagram](/development/carnivore.png)
+![sequence diagram](/development/carnivore-transparent.png)
 
 ## SOLID principles justification
 
