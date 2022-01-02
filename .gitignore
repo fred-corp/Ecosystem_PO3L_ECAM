@@ -3,3 +3,4 @@ __pycache__
 .vscode
 .stylelintrc.json
 private
+.mypy_cache
