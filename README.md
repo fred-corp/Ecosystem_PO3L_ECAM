@@ -13,6 +13,7 @@
 
 ## Usage
 
+Open folder in a terminal.  
 Verify your python version, it sould be 3.9 at least :
 
 ```zsh
