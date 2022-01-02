@@ -16,7 +16,7 @@
  "defaultContactRadius" : int r,  # Contact radius for everyone
  "defaultRootRadius" : int r,     # Root spread radius for everyone
  "defaultSeedRadius" : int r,     # Seed spread radius for everyone
- "startRandom" : bool s,          # Start the simulation with a random amount of lifes (must specify lifeforms in lifeDefaults)
+ "startRandom" : bool s,          # Start the simulation with a random amount of lifes (must specify lifeforms in lifeDefaults) [not implemented yet]
  "keepHistory" : bool k,          # Wether all the rounds should be kept stored in the json or only the last
  "genders" : [str x, ...],        # List of genders
  "types" : [str t, ...],          # List of types of entities (for example carnivore, herbivore, plant, meat, organic waste)
@@ -34,19 +34,20 @@ TODO :
 ```python
 {
  str key : {                   # Race of the lifeform
-  "type": str s,               # type : references to "type" array
+  "type": str s,               # type : references index to "type" array
   "color" : str C,             # HEX color code for EcoSym Viewer
-  "symbol" : str S             # Symbol of entity for EcoSym Viewer (emoji)
+  "symbol" : str S,            # Symbol of entity for EcoSym Viewer (emoji)
+  "FP" : int f,                # Amount of foodpoints a food entity is worth (only for food (organic waste & meat))
   "lifespan" : int x,          # Lifespan of lifeform (only for animals & plants)
   "reproduceCooldown" : int x, # Number of rounds a lifeform must wait before mating and after which it gives birth when pregnant (only for animals) 
   "getsPregnant" : int x,      # Which gender gets pregnant (only for animals)
   "gestation" : int x,         # Number of rounds it takes for a newborn to develop (only for animals)
-  "adultAt" : int x,           # age at which an animal or plant ca reproduce or spread seeds
+  "adultAt" : int x,           # age at which an animal or plant ca reproduce or spread seeds (only for animals & plants)
   "contactRadius" : int x,     # Contact radius (only for animals)
   "visionRadius" : int x,      # Vision radius (only for animals)
   "maxMove" : int x,           # Max move distance (only for animals)
   "rootRadius" : int r,        # Root spread radius (only for plants)
-  "seedRadius" : int r,        # Seed spread radius (only for plants)
+  "seedRadius" : int r         # Seed spread radius (only for plants)
  },
  ...
 }
@@ -58,16 +59,17 @@ TODO :
 ```python
 [
  [
-  {"UUID" : str UUID,
-   "lifeform" : str LifeFormDefaultKEY,
-   "posX" : int x,
-   "posY" : int y,
-   "age" : int a,
-   "HP" : int h,               # only animals & plants
-   "FP" : int f,               # only animals & plants
-   "gender" : int g,           # only animals
-   "isPregnant" : int p,       # only animals,
-   "gestationCooldown" : int d # only animals
+  {"UUID" : str UUID,                     # UUID of entity
+   "lifeform" : str LifeFormDefaultKEY,   # Reference to lifeFormDefaults, can be considered as "race"
+   "posX" : int x,                        # X coordinated of entity
+   "posY" : int y,                        # Y coordinates of entity
+   "FP" : int f,                          # Current energy/food points
+   "age" : int a,                         # Current age (only animals, plants & meat)
+   "HP" : int h,                          # Current health points (only animals & plants)
+   "gender" : int g,                      # Gender of animal, references index to "genders" array (only animals)
+   "isPregnant" : int p,                  # Wether an animal is pregnant (1) or not (0) (only animals)
+   "gestationCooldown" : int d            # How many "days" until a pregnant animal gives birth (only animals)
+   "seedCooldown" : int c                 # How many days until a plant can spread seeds again after it has (only plants)
   },
   ...
  ],
