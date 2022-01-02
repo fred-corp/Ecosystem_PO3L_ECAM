@@ -23,9 +23,9 @@ By Frédéric Druppel (18053) and Lancelot Neirinckx (18206)
 
 ## Preambule
 
-This project was created as part of a 3rd year industrial engineering programming course at ECAM BRussels ENgineering school. The project requirements can be found on [this website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html) (in french).
+This project was created as part of a 3rd year industrial engineering programming course at ECAM Brussels Engineering school. The project requirements can be found on [this website](https://quentin.lurkin.xyz/courses/poo/projet2021/index.html) (in french).
 
-As we could choose the language the project was written in, we chose Python as we're familiar with it, and it's fast to write working code and deploy it on a Linux server that runs in a basement somewhere.  
+As we could choose the language the project was written in, we chose Python as we're familiar with it, and it's fast to write working code and deploy it on a Linux server.  
 In order to make everything faster, javascript or C++ could be used for the backend, but we didn't have the time to play around with that.
 
 A PyGame fork of the project exists in the [pygame branch](https://github.com/fred-corp/Ecosystem_PO3L_ECAM/tree/pygame) of this repo, feel free to give it a try !
@@ -79,7 +79,7 @@ You'll also see a collapsable list of the entities next to the grid. This list d
 
 ## UML Diagrams
 
-The raw PkantUML files can be found in the [diagrams](development/diagrams) folder in [development](development).
+The raw PlantUML files can be found in the [diagrams](development/diagrams) folder in [development](development).
 
 ### Class diagram
 
