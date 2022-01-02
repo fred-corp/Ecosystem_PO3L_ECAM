@@ -20,6 +20,12 @@ $ python3 --version
 Python 3.9.1
 ```
 
+Install requirements :
+
+```zsh
+$ pip3 install -r requirements.txt
+```
+
 Go into the backend directory :
 
 ```zsh
