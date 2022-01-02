@@ -13,9 +13,15 @@
 
 ## Usage
 
+Go into the backend directory :
+
+```zsh
+cd backend
+```
+
 Launch the server:
 
-```python
+```zsh
 python3 server.py "0.0.0.0"
 ```
 
