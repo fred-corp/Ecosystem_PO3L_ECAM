@@ -23,6 +23,12 @@ Navigate to `localhost:3000`
 
 > You can also still visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
 
+On the EcoSym website, you can then go to the "simulate" tab, load the example, and then run the simulation.  
+More details about the syntax of the example JSON file can be found in the [ecosystemExampleFiles](/ecosystemExampleFiles) folder.
+
+If you run your own instance of the EcoSym simulator, you can change the example JSON (without changing its name) and simply click the "load example" button on the locally hosted website.  
+The website may one day have an "upload custom ecosystem file" button, but we didn't have the time to implement that.
+
 ## UML Diagrams
 
 ### Class diagram
