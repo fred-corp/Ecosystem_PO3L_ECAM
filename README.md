@@ -13,16 +13,23 @@
 
 ## Usage
 
+Verify your python version, it sould be 3.9 at least :
+
+```zsh
+$ python3 --version
+Python 3.9.1
+```
+
 Go into the backend directory :
 
 ```zsh
-cd backend
+$ cd backend
 ```
 
 Launch the server:
 
 ```zsh
-python3 server.py "0.0.0.0"
+$ python3 server.py "0.0.0.0"
 ```
 
 Navigate to `localhost:3000`
