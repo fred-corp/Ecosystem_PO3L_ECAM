@@ -3,7 +3,9 @@
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/https/ecosym.fredcorp.cc/ping)](https://ecosym.fredcorp.cc)
 ![checkout workflow](https://github.com/fred-corp/Ecosystem_PO3L_ECAM/actions/workflows/checkout.yml/badge.svg)
 
-> Visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
+Visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
+
+By Frédéric Druppel (18053) and Lancelot Neirinckx (18206)
 
 ## TODO
 
@@ -24,19 +26,19 @@ Python 3.9.1
 Install requirements :
 
 ```zsh
-$ pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Go into the backend directory :
 
 ```zsh
-$ cd backend
+cd backend
 ```
 
 Launch the server:
 
 ```zsh
-$ python3 server.py "0.0.0.0"
+python3 server.py "0.0.0.0"
 ```
 
 Navigate to `localhost:3000`
