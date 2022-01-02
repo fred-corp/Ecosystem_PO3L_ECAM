@@ -1,4 +1,4 @@
-# Ecosystem
+# EcoSym
 
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/https/ecosym.fredcorp.cc/ping)](https://ecosym.fredcorp.cc)
 ![checkout workflow](https://github.com/fred-corp/Ecosystem_PO3L_ECAM/actions/workflows/checkout.yml/badge.svg)
@@ -6,6 +6,20 @@
 Visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
 
 By Frédéric Druppel (18053) and Lancelot Neirinckx (18206)
+
+## Index
+
+- [EcoSym](#ecosym)
+- Recursivity
+- Preambule
+- Usage
+- UML Diagram
+  - Class diagram
+  - Sequence diagram
+- SOLID principles justification
+  - Single-responsibility principle
+  - Open–closed principle
+- Sources
 
 ## Preambule
 
@@ -33,19 +47,19 @@ Python 3.9.1
 Install requirements :
 
 ```zsh
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 Go into the backend directory :
 
 ```zsh
-cd backend
+$ cd backend
 ```
 
 Launch the server:
 
 ```zsh
-python3 server.py "0.0.0.0"
+$ python3 server.py "0.0.0.0"
 ```
 
 Navigate to `localhost:3000`
@@ -77,13 +91,13 @@ You'll also see a collapsable list of the entities next to the grid. This list d
 
 ### Single-responsibility principle
 
-> "There should never be more than one reason for a class to change."
+"There should never be more than one reason for a class to change."
 
 Each class has it's own responsability. For example a `Plant` object can only act as a plant in the ecosystem. It has it's own methods to get a root zone or a seed zone which are specific to the class responsability.
 
 ### Open–closed principle
 
-> "Software entities ... should be open for extension, but closed for modification."
+"Software entities ... should be open for extension, but closed for modification."
 
 Let's take the `Animal` class as an example. If we need to create a new animal, we do not need to modify code inside the `Animal` class but just extend it. For example the `get_contact_zone()` method will return a zone based on `contact_zone` which is a parameter defined by the extended class.
 
