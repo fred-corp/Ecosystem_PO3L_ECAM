@@ -79,13 +79,15 @@ You'll also see a collapsable list of the entities next to the grid. This list d
 
 ## UML Diagrams
 
+The raw PkantUML files can be found in the [diagrams](development/diagrams) folder in [development](development).
+
 ### Class diagram
 
-![class diagram](/development/class.png)
+![class diagram](/development/diagram-images/class.png)
 
 ### Carnivore sequence diagram
 
-![sequence diagram](/development/carnivore-transparent.png)
+![sequence diagram](/development/diagram-images/carnivore-transparent.png)
 
 ## SOLID principles justification
 
