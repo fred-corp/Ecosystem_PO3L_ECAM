@@ -83,9 +83,9 @@ You'll also see a collapsable list of the entities next to the grid. This list d
 
 ![class diagram](/development/class.png)
 
-### Sequence diagram
+### Carnivore sequence diagram
 
-```![sequence diagram](/development/sequence.png)```
+![sequence diagram](/development/carnivore.png)
 
 ## SOLID principles justification
 
@@ -107,8 +107,6 @@ Let's take the `Animal` class as an example. If we need to create a new animal, 
 - [W3schools](https://www.w3schools.com)
 - [StackOverflow](https://stackoverflow.com)
 - SOLID principles : [Wikipedia](https://en.wikipedia.org/wiki/SOLID)
-
-A different implementation based on pygame can be found in the `pygame` branch.
 
 Made with ❤️, lots of ☕️, and lack of 🛌  
 Published under CreativeCommons BY-NC-SA 4.0

@@ -1,0 +1,83 @@
+@startuml
+
+participant ecosystem
+participant ecoSymFunctions
+participant Carnivore
+participant Herbivore
+participant Meat
+
+
+ecoSymFunctions -> Carnivore : process(object, ecosystem, grid)
+
+alt age > lifespan
+  ecosystem <-- Carnivore : remove_object(object)
+  ecoSymFunctions -> Carnivore !! : << destroy >>
+  ecoSymFunctions -> Meat : << create >>
+  deactivate Carnivore
+  ecosystem <-- Meat : add(Meat)
+  Carnivore -> ecoSymFunctions : return ecosystem
+end
+
+alt energy_points is 0
+  alt health_points
+  else health_points > 0
+    Carnivore -> Carnivore : modify_health_points(-1)
+    Carnivore -> Carnivore : modify_energy(HPFPEquivalence)
+  else health_points <= 0
+    ecosystem <-- Carnivore : remove_object(object)
+    ecoSymFunctions -> Carnivore !! : << destroy >>
+    ecoSymFunctions -> Meat : << create >>
+    ecosystem <-- Meat : add(Meat)
+  end
+end
+
+alt found prey
+  else True
+    Carnivore -> Herbivore : modify_health_points(-1)
+    Carnivore -> Carnivore : modify_energy(-2)
+end
+
+alt food in contact_zone
+  else True
+    Carnivore -> Meat : modify_health_points(-hunger)
+    Carnivore -> Carnivore : modify_energy(hunger)
+end
+
+alt partner in contact_zone
+  else True
+    Carnivore -> Carnivore : isPregnant = 1
+    Carnivore -> Carnivore : modify_energy(-2)
+    Carnivore -> Carnivore : gestationCooldown = gestationCooldown
+end
+
+alt is pregnant
+  alt gestationCooldown 
+      else gestationCooldown = 0
+        ecoSymFunctions -> Carnivore : << create >> in contact_zone
+        ecosystem <-- Carnivore : add(baby)
+        Carnivore -> Carnivore : isPregnant = 0
+      else gestationCooldown > 0
+        Carnivore -> Carnivore : isPregnant = 1
+  end
+end
+
+ecoSymFunctions -> OrganicWaste : << create >> in contact_zone
+ecosystem <-- OrganicWaste : add(OrganicWaste)
+
+alt move
+    else partner in vision_zone
+      Carnivore -> Carnivore : move closer to partner
+    else food in vision_zone
+      Carnivore -> Carnivore : move closer to food
+    else prey in vision_zone
+      Carnivore -> Carnivore : move closer to prey
+    else random
+      Carnivore -> Carnivore : random move
+end
+
+Carnivore -> Carnivore : increase_age()
+Carnivore -> Carnivore : modify_energy(-1)
+
+Carnivore -> ecoSymFunctions : return ecosystem
+
+@enduml
