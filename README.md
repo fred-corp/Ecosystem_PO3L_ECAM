@@ -39,19 +39,13 @@ Navigate to `localhost:3000`
 
 > "There should never be more than one reason for a class to change."
 
-`todo`
+Each class has it's own responsability. For example a `Plant` object can only act as a plant in the ecosystem. It has it's own methods to get a root zone or a seed zone which are specific to the class responsability.
 
 ### Open–closed principle
 
 > "Software entities ... should be open for extension, but closed for modification."
 
-`todo`
-
-### Liskov substitution principle
-
-> "Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it."
-
-`todo`
+Let's take the `Animal` class as an example. If we need to create a new animal, we do not need to modify code inside the `Animal` class but just extend it. For example the `get_contact_zone()` method will return a zone based on `contact_zone` which is a parameter defined by the extended class.
 
 ## Sources
 
