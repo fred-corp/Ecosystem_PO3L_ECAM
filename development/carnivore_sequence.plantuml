@@ -1,4 +1,6 @@
-@startuml
+@startuml carnivore_sequence
+
+skinparam backgroundcolor transparent
 
 participant ecosystem
 participant ecoSymFunctions
