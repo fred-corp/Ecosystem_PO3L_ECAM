@@ -7,19 +7,19 @@ Visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
 
 By Frédéric Druppel (18053) and Lancelot Neirinckx (18206)
 
-## Index
+## Table of contents
 
 - [EcoSym](#ecosym)
-- Recursivity
-- Preambule
-- Usage
-- UML Diagram
-  - Class diagram
-  - Sequence diagram
-- SOLID principles justification
-  - Single-responsibility principle
-  - Open–closed principle
-- Sources
+- [Recursivity](#table-of-contents)
+- [Preambule](#preambule)
+- [Usage](#usage)
+- [UML Diagrams](#uml-diagrams)
+  - [Class diagram](#class-diagram)
+  - [Sequence diagram](#sequence-diagrams)
+- [SOLID principles justification](#solid-principles-justification)
+  - [Single-responsibility principle](#single-responsibility-principle)
+  - [Open–closed principle](#open–closed-principle)
+- [Sources](#sources)
 
 ## Preambule
 
