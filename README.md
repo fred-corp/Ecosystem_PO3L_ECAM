@@ -34,7 +34,7 @@ $ python3 server.py "0.0.0.0"
 
 Navigate to `localhost:3000`
 
-> You can also still visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
+> You can also visit the [EcoSym website](https://ecosym.fredcorp.cc) for a live demo !
 
 On the EcoSym website, you can then go to the "simulate" tab, load the example, and then run the simulation.  
 More details about the syntax of the example JSON file can be found in the [ecosystemExampleFiles](/ecosystemExampleFiles) folder.
