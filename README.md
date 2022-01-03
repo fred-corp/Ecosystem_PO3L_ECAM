@@ -87,7 +87,7 @@ The raw PlantUML files can be found in the [diagrams](development/diagrams) fold
 
 ### Carnivore sequence diagram
 
-![sequence diagram](/development/diagram-images/carnivore-transparent.png)
+![sequence diagram](/development/diagram-images/carnivore.png)
 
 ## SOLID principles justification
 
